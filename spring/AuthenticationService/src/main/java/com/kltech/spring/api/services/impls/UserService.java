@@ -1,0 +1,54 @@
+package com.kltech.spring.api.services.impls;
+
+import com.kltech.spring.api.mappers.UserMapper;
+import com.kltech.spring.api.models.dto.requests.UserRequest;
+import com.kltech.spring.api.models.dto.responses.UserResponse;
+import com.kltech.spring.api.services.IUserService;
+import com.kltech.spring.api.models.User;
+import com.kltech.spring.api.repositories.UserRepository;
+import com.kltech.spring.exception.ApiRequestException;
+import com.kltech.spring.exception.ErrorCode;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class UserService implements IUserService {
+
+  private final UserRepository userRepository;
+  private final UserMapper userMapper;
+
+  @Override
+  public List<UserResponse> findAll() {
+    return userRepository.findAll().stream().map(userMapper::toUserResponse).toList();
+  }
+
+  @Override
+  public void update(String id, UserRequest userRequest) {
+    User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+
+    if (userRequest.getRole() != null) {
+      user.setRole(userRequest.getRole());
+    }
+
+    userMapper.toUserEntity(userRequest, user);
+
+    userRepository.save(user);
+  }
+
+  @Override
+  public void delete(String id) {
+    if (userRepository.existsById(id)) {
+      userRepository.deleteById(id);
+    } else {
+      throw new RuntimeException("User not found");
+    }
+  }
+
+  @Override
+  public UserResponse findById(String id) {
+    return userMapper.toUserResponse(userRepository.findById(id)
+        .orElseThrow(() -> new ApiRequestException(ErrorCode.USER_NOT_FOUND)));
+  }
+}
