@@ -2,7 +2,7 @@ version: '3'
 
 services:
   product-service-db:
-    image: mysql
+    image: mysql:8.0
     container_name: product-service-db
     restart: always
     environment:

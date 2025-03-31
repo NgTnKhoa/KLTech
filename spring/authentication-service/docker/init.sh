@@ -1,0 +1,9 @@
+mysql --user=root --password=123467890@123 <<-EOSQL
+    CHANGE REPLICATION SOURCE TO
+    SOURCE_HOST='master_db',
+    SOURCE_USER='replica',
+    SOURCE_PASSWORD='123457890@123',
+    SOURCE_LOG_FILE='binlog.000002', -- Dựa vào SHOW BINRAY LOG STATUS trên Master
+    SOURCE_LOG_POS=158 -- Dựa vào SHOW BINARY LOG STATUS trên Master
+    GET_SOURCE_PUBLIC_KEY=1;
+EOSQL
