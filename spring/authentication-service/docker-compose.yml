@@ -2,17 +2,32 @@ version: '3.9'
 
 services:
   authentication-service-db:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: authentication-service-db
     restart: always
     volumes:
-      - ./docker/db/conf/my.cnf:/etc/mysql/my.cnf
-      - ./docker/db/scripts/init.sh:/docker-entrypoint-initdb.d/10-init.sh
+      - ./docker/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: 1234567890@123
       MYSQL_DATABASE: kltech
     networks:
       - kltech-network
+    command: 
+      --server-id=2
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        docker-entrypoint.sh mysqld & sleep 10;
+        mysql -uroot -p1234567890@123 <<EOSQL
+        CHANGE REPLICATION SOURCE TO
+        SOURCE_HOST='master_db',
+        SOURCE_USER='replica',
+        SOURCE_PASSWORD='1234567890@123',
+        SOURCE_LOG_FILE='mysql-bin.000003', -- Dựa vào SHOW MASTER STATUS trên Master
+        SOURCE_LOG_POS=684; -- Dựa vào SHOW MASTER STATUS trên Master
+        EOSQL
+        wait
 
   authentication-service-app:
     container_name: authentication-service-app
