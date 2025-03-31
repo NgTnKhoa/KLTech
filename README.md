@@ -26,7 +26,7 @@ docker-compose up -d --build
 
 Sau khi **master_db** đã chạy, truy cập vào container:
 ```sh
-docker exec -it master_db mysql -uroot -p
+docker exec -it master_db mysql -uroot -p1234567890@123
 ```
 
 Chạy lệnh sau để lấy thông tin replication:
@@ -87,7 +87,7 @@ docker-compose up -d authentication-service-db
 
 Sau đó, vào MySQL trên Slave:
 ```sh
-docker exec -it authentication-service-db mysql -uroot -p
+docker exec -it authentication-service-db mysql -uroot -p1234567890@123
 ```
 
 Thiết lập replication:
