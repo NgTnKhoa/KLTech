@@ -99,7 +99,9 @@ CHANGE REPLICATION SOURCE TO
     SOURCE_LOG_FILE='mysql-bin.000003',  -- Thay bằng giá trị từ bước 2
     SOURCE_LOG_POS=684;                  -- Thay bằng giá trị từ bước 2
 
-START REPLICA;
+STOP SLAVE;
+RESET SLAVE;
+START SLAVE;
 ```
 
 ## **6. Kiểm tra Trạng thái Replication**
