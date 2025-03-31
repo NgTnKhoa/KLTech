@@ -20,8 +20,10 @@ services:
       - |
         docker-entrypoint.sh mysqld & sleep 10;
         mysql -uroot -p1234567890@123 <<EOSQL
-        CREATE USER 'replica'@'%' IDENTIFIED WITH caching_sha2_password BY '1234567890@123';
-        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'%';
+        CREATE USER 'replica'@'%' IDENTIFIED WITH mysql_native_password BY '1234567890@123';
+        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'%' WITH GRANT OPTION;
+        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'authentication-service-db' WITH GRANT OPTION;
+        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'product-service-db' WITH GRANT OPTION;
         FLUSH PRIVILEGES;
         EOSQL
         wait
