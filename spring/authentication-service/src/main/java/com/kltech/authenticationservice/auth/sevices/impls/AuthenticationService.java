@@ -1,7 +1,9 @@
 package com.kltech.authenticationservice.auth.sevices.impls;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kltech.authenticationservice.auth.configs.db.DataSource;
 import com.kltech.authenticationservice.auth.configs.security.JwtService;
+import com.kltech.authenticationservice.auth.enums.DataSourceType;
 import com.kltech.authenticationservice.auth.enums.TokenType;
 import com.kltech.authenticationservice.auth.enums.UserRole;
 import com.kltech.authenticationservice.auth.models.Token;
@@ -34,6 +36,7 @@ public class AuthenticationService implements IAuthenticationService {
   private final AuthenticationManager authenticationManager;
 
   @Override
+  @DataSource(DataSourceType.MASTER)
   public AuthenticationResponse register(RegisterRequest registerRequest) {
     User user = User.builder()
         .name(registerRequest.getName())

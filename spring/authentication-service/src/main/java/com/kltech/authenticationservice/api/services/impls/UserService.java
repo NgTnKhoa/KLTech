@@ -6,6 +6,8 @@ import com.kltech.authenticationservice.api.models.dto.responses.UserResponse;
 import com.kltech.authenticationservice.api.services.IUserService;
 import com.kltech.authenticationservice.api.models.User;
 import com.kltech.authenticationservice.api.repositories.UserRepository;
+import com.kltech.authenticationservice.auth.configs.db.DataSource;
+import com.kltech.authenticationservice.auth.enums.DataSourceType;
 import com.kltech.authenticationservice.exception.ApiRequestException;
 import com.kltech.authenticationservice.exception.ErrorCode;
 import java.util.List;
@@ -20,11 +22,13 @@ public class UserService implements IUserService {
   private final UserRepository userRepository;
 
   @Override
+  @DataSource(DataSourceType.SLAVE)
   public List<UserResponse> findAll() {
     return userRepository.findAll().stream().map(userMapper::toUserResponse).toList();
   }
 
   @Override
+  @DataSource(DataSourceType.MASTER)
   public void update(String id, UserRequest userRequest) {
     User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -38,6 +42,7 @@ public class UserService implements IUserService {
   }
 
   @Override
+  @DataSource(DataSourceType.MASTER)
   public void delete(String id) {
     if (userRepository.existsById(id)) {
       userRepository.deleteById(id);
@@ -47,6 +52,7 @@ public class UserService implements IUserService {
   }
 
   @Override
+  @DataSource(DataSourceType.SLAVE)
   public UserResponse findById(String id) {
     return userMapper.toUserResponse(userRepository.findById(id)
         .orElseThrow(() -> new ApiRequestException(ErrorCode.USER_NOT_FOUND)));

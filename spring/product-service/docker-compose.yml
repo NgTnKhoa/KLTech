@@ -6,7 +6,7 @@ services:
     container_name: product-service-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 1234567890@123
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: kltech
     networks:
       - kltech-network
@@ -21,7 +21,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://product-service-db:3306/kltech?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 1234567890@123
+      SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       - product-service-db
     networks:

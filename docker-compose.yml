@@ -4,32 +4,28 @@ services:
   master_db:
     image: mysql:8.0
     container_name: master_db
-    restart: always
-    volumes:
-      - ./spring/master-db/conf/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./spring/master-db/scripts/init.sh:/docker-entrypoint-initdb.d/10-init.sh
-    command: --default-authentication-plugin=mysql_native_password
+    command: --server-id=1 --log-bin=mysql-bin --binlog-format=row
     environment:
-      MYSQL_ROOT_PASSWORD: 1234567890@123
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kltech 
+      MYSQL_USER: replica
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+
+  slave_db:
+    image: mysql:8.0
+    container_name: slave_db
+    depends_on:
+      - master_db
+    command: --server-id=2 --log-bin=mysql-bin --binlog-format=row
+    environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: kltech
-    networks:
-      - kltech-network
-    entrypoint:
-      - /bin/bash
-      - -c
-      - |
-        docker-entrypoint.sh mysqld & sleep 10;
-        mysql -uroot -p1234567890@123 <<EOSQL
-        CREATE USER 'replica'@'%' IDENTIFIED WITH mysql_native_password BY '1234567890@123';
-        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'%' WITH GRANT OPTION;
-        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'authentication-service-db' WITH GRANT OPTION;
-        GRANT REPLICATION SLAVE ON *.* TO 'replica'@'product-service-db' WITH GRANT OPTION;
-        FLUSH PRIVILEGES;
-        EOSQL
-        wait
-
-
-
+      MYSQL_USER: replica
+      MYSQL_PASSWORD: root
+    ports:
+      - "3307:3306"
 
   rabbitmq:
     image: rabbitmq:latest
@@ -39,7 +35,7 @@ services:
       - 15672:15672
     environment:
       RABBITMQ_DEFAULT_USER: root
-      RABBITMQ_DEFAULT_PASS: 1234567890@123
+      RABBITMQ_DEFAULT_PASS: root
     networks:
       - kltech-network
 
