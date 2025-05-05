@@ -1,6 +1,6 @@
-package com.kltech.authenticationservice.auth.configs.db;
+package com.kltech.notificationservice.config.db;
 
-import com.kltech.authenticationservice.auth.enums.DataSourceType;
+import com.kltech.notificationservice.enums.DataSourceType;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 public class DynamicDataSource extends AbstractRoutingDataSource {
@@ -10,5 +10,6 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
       return DynamicDataSourceHolder.getDataSource();
     }
     return DataSourceType.MASTER.getType();
+
   }
 }

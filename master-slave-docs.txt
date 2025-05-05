@@ -1,11 +1,11 @@
-1. configure master
+1. config master
 
     ALTER USER 'replica'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'root';
     GRANT REPLICATION SLAVE ON *.* TO 'replica'@'%';
     FLUSH PRIVILEGES;
     SHOW MASTER STATUS;
 
-2. configure slave 
+2. config slave 
 
     CHANGE MASTER TO 
     MASTER_HOST='master_db', 

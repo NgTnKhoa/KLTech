@@ -1,0 +1,67 @@
+web-config:
+  cors:
+    allowed:
+      origins: http://localhost:5173
+      methods: GET, POST, PUT, DELETE, HEAD, OPTIONS
+
+notification:
+  order-events-exchange: orders-exchange
+  new-orders-queue: new-orders
+  delivered-orders-queue: delivered-orders
+  cancelled-orders-queue: cancelled-orders
+  error-orders-queue: error-orders
+  support-email: 21130079@st.hcmuaf.edu.vn
+
+spring:
+  application:
+    name: authentication-service
+    firebase-configuration-file: notification-service-c03a3-firebase-adminsdk-fbsvc-9a2e2a0530.json
+
+  datasource:
+
+    master:
+      jdbcUrl: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/kltech?useSSL=false&autoReconnect=true}
+      username: ${SPRING_DATASOURCE_USERNAME:root}
+      password: ${SPRING_DATASOURCE_PASSWORD:root}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    slave:
+      jdbcUrl: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/kltech?useSSL=false&autoReconnect=true}
+      username: ${SPRING_DATASOURCE_USERNAME:root}
+      password: ${SPRING_DATASOURCE_PASSWORD:root}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+  mail:
+    host: ${MAIL_HOST:127.0.0.1}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:21130079@st.hcmuaf.edu.vn}
+    password: ${MAIL_PASSWORD:xxxxxxxxxxxxxxxxxxxxxxxxx}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+
+
+
+
