@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    name: 'product-service-app'
+    master:
+      url: jdbc:mysql://master_db:3306/kltech
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    slave:
+      url: jdbc:mysql://slave_db:3306/kltech
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
