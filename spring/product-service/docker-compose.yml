@@ -1,16 +1,6 @@
 version: '3'
 
 services:
-  product-service-db:
-    image: mysql:8.0
-    container_name: product-service-db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kltech
-    networks:
-      - kltech-network
-
   product-service-app:
     container_name: product-service-app
     ports:
@@ -18,12 +8,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://product-service-db:3306/kltech?createDatabaseIfNotExist=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
-    depends_on:
-      - product-service-db
     networks:
       - kltech-network
 
