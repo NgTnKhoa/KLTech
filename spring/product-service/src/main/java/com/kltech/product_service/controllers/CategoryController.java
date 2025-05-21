@@ -58,7 +58,7 @@ public class CategoryController {
                 .message("Get category successfully")
                 .status(true)
                 .statusCode(200)
-                .data(categoryService.findById(id))
+                .data(category)
                 .build());
     }
     
