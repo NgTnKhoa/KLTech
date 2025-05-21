@@ -12,6 +12,8 @@ services:
       MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
+    networks:
+      - kltech-network
 
   slave_db:
     image: mysql:8.0
@@ -26,6 +28,8 @@ services:
       MYSQL_PASSWORD: root
     ports:
       - "3307:3306"
+    networks:
+      - kltech-network
 
   rabbitmq:
     image: rabbitmq:latest
