@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,17 +19,13 @@ import com.kltech.product_service.models.mappers.ProductMapper;
 import com.kltech.product_service.models.requests.ProductRequest;
 import com.kltech.product_service.models.responses.BaseResponse;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 
 
 @RestController
 @RequestMapping("/api/v1/products")
-public class ProductServiceController {
+public class ProductController {
 
     @Autowired
     protected ProductService productService;
@@ -41,6 +41,19 @@ public class ProductServiceController {
                 .statusCode(200)
                 .build());
     }
+
+    @GetMapping("{id}")
+    public ResponseEntity<BaseResponse> show(@PathVariable Long id) {
+        Product product = productService.findById(id);
+        return ResponseEntity.ok()
+            .body(BaseResponse.builder()
+                .message("Get product successfully")
+                .status(true)
+                .statusCode(200)
+                .data(product)
+                .build());
+    }
+    
 
     @PostMapping("/")
     public ResponseEntity<BaseResponse> store(@RequestBody ProductRequest productRequest) {
@@ -65,7 +78,7 @@ public class ProductServiceController {
             return ResponseEntity
                 .badRequest()
                 .body(BaseResponse.builder()
-                    .data(updated)
+                    .data(null)
                     .statusCode(404)
                     .status(false)
                     .message("Not found")
