@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kltech.product_service.entities.Product;
+import com.kltech.product_service.implementations.services.product.ProductService;
 import com.kltech.product_service.models.mappers.ProductMapper;
 import com.kltech.product_service.models.requests.ProductRequest;
 import com.kltech.product_service.models.responses.BaseResponse;
-import com.kltech.product_service.services.ProductService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

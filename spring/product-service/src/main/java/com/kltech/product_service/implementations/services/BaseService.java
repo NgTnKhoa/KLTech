@@ -1,10 +1,11 @@
-package com.kltech.product_service.services;
+package com.kltech.product_service.implementations.services;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.kltech.product_service.entities.BaseEntity;
+import com.kltech.product_service.interfaces.IService;
 
 public abstract class BaseService<T extends BaseEntity> implements IService<T> {
     protected JpaRepository<T, Long> repository;

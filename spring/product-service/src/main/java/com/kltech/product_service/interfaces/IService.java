@@ -1,4 +1,4 @@
-package com.kltech.product_service.services;
+package com.kltech.product_service.interfaces;
 
 import java.util.List;
 
