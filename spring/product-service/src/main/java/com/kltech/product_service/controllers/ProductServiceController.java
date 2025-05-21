@@ -1,25 +1,54 @@
 package com.kltech.product_service.controllers;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kltech.product_service.models.response.BaseResponse;
+import com.kltech.product_service.entities.Product;
+import com.kltech.product_service.models.mappers.ProductMapper;
+import com.kltech.product_service.models.requests.ProductRequest;
+import com.kltech.product_service.models.responses.BaseResponse;
+import com.kltech.product_service.services.ProductService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductServiceController {
+
+    @Autowired
+    protected ProductService productService;
     @GetMapping("/")
-    public ResponseEntity<BaseResponse> getProducts() {
+    public ResponseEntity<BaseResponse> index() {
+        List<Product> products = productService.findAll();
         return ResponseEntity
             .ok()
             .body(BaseResponse.builder()
                 .message("Get All Products Successfully")
                 .status(true)
+                .data(products)
                 .statusCode(200)
                 .build());
     }
+
+    @PostMapping("/")
+    public ResponseEntity<BaseResponse> store(@RequestBody ProductRequest productRequest) {
+        Product product = ProductMapper.toEntity(productRequest);
+        Product created = productService.create(product);
+        return ResponseEntity
+            .ok()
+            .body(BaseResponse.builder()
+                .data(created)
+                .statusCode(201)
+                .status(true)
+                .build());
+    }
+    
     
 }

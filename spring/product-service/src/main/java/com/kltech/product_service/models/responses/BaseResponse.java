@@ -1,4 +1,4 @@
-package com.kltech.product_service.models.response;
+package com.kltech.product_service.models.responses;
 
 public class BaseResponse {
     public String message;
