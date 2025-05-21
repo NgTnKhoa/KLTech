@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,9 @@ import com.kltech.product_service.models.responses.BaseResponse;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -50,6 +54,54 @@ public class ProductServiceController {
                 .status(true)
                 .build());
     }
-    
+
+    @PutMapping("/{id}")
+    public ResponseEntity<BaseResponse> update(@PathVariable Long id, @RequestBody ProductRequest productRequest) {
+        Product product = ProductMapper.toEntity(productRequest);
+        Product record = productService.findById(id);
+        Product updated = productService.update(id, product);
+
+        if(record == null)
+            return ResponseEntity
+                .badRequest()
+                .body(BaseResponse.builder()
+                    .data(updated)
+                    .statusCode(404)
+                    .status(false)
+                    .message("Not found")
+                    .build());
+
+        return ResponseEntity
+            .ok()
+            .body(BaseResponse.builder()
+                .data(updated)
+                .statusCode(200)
+                .status(true)
+                .build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BaseResponse> delete(@PathVariable Long id) throws Exception {
+        try {
+            productService.delete(id);
+            return ResponseEntity
+                .ok()
+                .body(BaseResponse.builder()
+                    .data(null)
+                    .statusCode(200)
+                    .status(true)
+                    .build());
+        }
+        catch(Exception e) {
+            return ResponseEntity
+                .badRequest()
+                .body(BaseResponse.builder()
+                    .data(null)
+                    .statusCode(400)
+                    .status(false)
+                    .message(e.getMessage())
+                    .build());
+        }
+    }
     
 }
