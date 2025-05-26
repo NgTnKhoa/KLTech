@@ -8,15 +8,19 @@ spring:
   application:
     name: authentication-service
   datasource:
+    name: 'authentication-service-app'
     master:
-      jdbcUrl: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/kltech?useSSL=false&autoReconnect=true}
-      username: ${SPRING_DATASOURCE_USERNAME:root}
-      password: ${SPRING_DATASOURCE_PASSWORD:root}
+      #      url: jdbc:mysql://master_db:3306/kltech
+      url: jdbc:mysql://localhost:3306/kltech?useSSL=false&autoReconnect=true
+      username: root
+      password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
+
     slave:
-      jdbcUrl: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/kltech?useSSL=false&autoReconnect=true}
-      username: ${SPRING_DATASOURCE_USERNAME:root}
-      password: ${SPRING_DATASOURCE_PASSWORD:root}
+      #      url: jdbc:mysql://slave_db:3306/kltech
+      url: jdbc:mysql://localhost:3307/kltech?useSSL=false&autoReconnect=true
+      username: root
+      password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -28,11 +32,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
-  servlet:
-    multipart:
-      max-file-size: 1024MB
-      max-request-size: 1024MB
-      enabled: true
 
 application:
   security:
