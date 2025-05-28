@@ -51,4 +51,9 @@ public class ProductService implements IProductService {
   public ProductResponse findById(String id) {
     return productRepository.findById(id).map(productMapper::toProductResponse).orElseThrow(() -> new RuntimeException("Product not found"));
   }
+
+  @Override
+  public List<ProductResponse> findByCategoryId(String categoryId) {
+    return productRepository.findAllByCategory_Id(categoryId).stream().map(productMapper::toProductResponse).toList();
+  }
 }

@@ -1,9 +1,10 @@
 package com.kltech.product_service.controllers;
 
 import com.kltech.product_service.models.responses.ProductResponse;
+import com.kltech.product_service.services.IProductService;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,22 +13,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kltech.product_service.services.impls.ProductService;
 import com.kltech.product_service.models.requests.ProductRequest;
 import com.kltech.product_service.models.responses.BaseResponse;
 
 @RestController
 @RequestMapping("/api/v1/products")
+@RequiredArgsConstructor
 public class ProductController {
 
-  @Autowired
-  protected ProductService productService;
+  private final IProductService productService;
 
   @GetMapping
-  public ResponseEntity<BaseResponse> findAll() {
-    List<ProductResponse> products = productService.findAll();
+  public ResponseEntity<BaseResponse> findAll(@RequestParam(required = false) String categoryId) {
+    List<ProductResponse> products = null;
+    if (categoryId != null && !categoryId.isBlank()) {
+      products = productService.findByCategoryId(categoryId);
+    } else {
+      products = productService.findAll();
+    }
     return ResponseEntity
         .ok()
         .body(BaseResponse.builder()
@@ -87,5 +93,4 @@ public class ProductController {
             .status(true)
             .build());
   }
-
 }

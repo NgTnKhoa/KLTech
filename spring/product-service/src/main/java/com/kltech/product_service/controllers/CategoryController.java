@@ -3,6 +3,7 @@ package com.kltech.product_service.controllers;
 import com.kltech.product_service.models.responses.CategoryResponse;
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,13 +21,13 @@ import com.kltech.product_service.models.responses.BaseResponse;
 
 @RestController
 @RequestMapping("/api/v1/categories")
+@RequiredArgsConstructor
 public class CategoryController {
 
-  @Autowired
-  protected ICategoryService categoryService;
+  private final ICategoryService categoryService;
 
   @GetMapping
-  public ResponseEntity<BaseResponse> index() {
+  public ResponseEntity<BaseResponse> findAll() {
     List<CategoryResponse> categories = categoryService.findAll();
     return ResponseEntity
         .ok()
@@ -39,7 +40,7 @@ public class CategoryController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<BaseResponse> show(@PathVariable String id) {
+  public ResponseEntity<BaseResponse> findById(@PathVariable String id) {
     CategoryResponse category = categoryService.findById(id);
     if (category == null) {
       return ResponseEntity
@@ -63,7 +64,7 @@ public class CategoryController {
   }
 
   @PostMapping
-  public ResponseEntity<BaseResponse> store(@RequestBody CategoryRequest categoryRequest) {
+  public ResponseEntity<BaseResponse> create(@RequestBody CategoryRequest categoryRequest) {
     CategoryResponse createdCategory = categoryService.create(categoryRequest);
     return ResponseEntity
         .ok()

@@ -20,4 +20,6 @@ public interface IProductService {
 
   @Transactional
   ProductResponse findById(String id);
+
+  List<ProductResponse> findByCategoryId(String categoryId);
 }
