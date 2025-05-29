@@ -56,7 +56,6 @@ public class ProductController {
             .build());
   }
 
-
   @PostMapping
   public ResponseEntity<BaseResponse> create(@RequestBody ProductRequest productRequest) {
     ProductResponse createdProduct = productService.create(productRequest);
