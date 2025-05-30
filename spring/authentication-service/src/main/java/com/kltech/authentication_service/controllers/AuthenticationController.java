@@ -6,6 +6,7 @@ import com.kltech.authentication_service.models.responses.AuthenticationResponse
 import com.kltech.authentication_service.services.IAuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class AuthenticationController {
   private final IAuthenticationService IAuthenticationService;
 
   @PostMapping("/register")
-  public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) {
+  public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody RegisterRequest registerRequest) {
     return ResponseEntity.ok(IAuthenticationService.register(registerRequest));
   }
 

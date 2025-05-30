@@ -12,6 +12,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
 
+    @Mapping(source = "category.id", target = "categoryId")
     ProductResponse toProductResponse(Product product);
 
     @Mapping(source = "categoryId", target = "category.id")

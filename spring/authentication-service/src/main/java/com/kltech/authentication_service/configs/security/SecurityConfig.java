@@ -27,17 +27,10 @@ public class SecurityConfig {
   private final AuthenticationProvider authenticationProvider;
   private final LogoutHandler logoutHandler;
 
-  @Value("${web-config.cors.allowed.origins}")
-  private String allowedOrigins;
-
-  @Value("${web-config.cors.allowed.methods}")
-  private String[] allowedMethods;
-
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
     http
         .csrf(AbstractHttpConfigurer::disable)
-        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
         .authorizeHttpRequests(auth ->
             auth
                 .requestMatchers("/api/v1/auth/**").permitAll()
@@ -59,18 +52,5 @@ public class SecurityConfig {
         );
 
     return http.build();
-  }
-
-  @Bean
-  public CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration config = new CorsConfiguration();
-    config.setAllowCredentials(true);
-    config.setAllowedOrigins(List.of(allowedOrigins));
-    config.setAllowedMethods(List.of(allowedMethods));
-    config.setAllowedHeaders(List.of("*"));
-
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", config);
-    return source;
   }
 }

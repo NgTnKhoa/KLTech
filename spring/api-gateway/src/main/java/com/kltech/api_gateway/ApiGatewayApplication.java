@@ -16,11 +16,10 @@ public class ApiGatewayApplication {
   @Bean
   public RouteLocator myRoutes(RouteLocatorBuilder builder) {
     return builder.routes()
+        .route("auth-service", r -> r.path("/api/v1/auth/**")
+            .uri("http://localhost:8080"))
         .route("product-service", r -> r.path("/api/v1/products/**", "/api/v1/categories/**")
             .uri("http://localhost:8081"))
-//        .route(r -> r
-//            .path("/api/v1/products")
-//            .uri("http://localhost:8081/api/v1/products"))
         .build();
   }
 

@@ -9,9 +9,9 @@ import java.io.IOException;
 
 public interface IAuthenticationService {
 
-  public AuthenticationResponse register(RegisterRequest registerRequest);
+  AuthenticationResponse register(RegisterRequest registerRequest);
 
-  public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest);
+  AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest);
 
   void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException;
 
