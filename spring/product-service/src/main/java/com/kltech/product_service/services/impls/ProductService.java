@@ -6,6 +6,8 @@ import com.kltech.product_service.models.requests.ProductRequest;
 import com.kltech.product_service.models.responses.ProductResponse;
 import com.kltech.product_service.repositories.ProductRepository;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -55,5 +57,15 @@ public class ProductService implements IProductService {
   @Override
   public List<ProductResponse> findByCategoryId(String categoryId) {
     return productRepository.findAllByCategory_Id(categoryId).stream().map(productMapper::toProductResponse).toList();
+  }
+
+  @Override
+  public Set<String> findAllColors() {
+    List<Product> products = productRepository.findAll();
+
+    return products.stream()
+        .filter(p -> p.getColors() != null && !p.getColors().isEmpty())
+        .flatMap(p -> p.getColors().stream())
+        .collect(Collectors.toSet());
   }
 }

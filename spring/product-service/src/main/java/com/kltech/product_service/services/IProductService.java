@@ -4,6 +4,7 @@ import com.kltech.product_service.models.requests.ProductRequest;
 import com.kltech.product_service.models.responses.ProductResponse;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 public interface IProductService {
 
@@ -18,8 +19,9 @@ public interface IProductService {
   @Transactional
   void delete(String id);
 
-  @Transactional
   ProductResponse findById(String id);
 
   List<ProductResponse> findByCategoryId(String categoryId);
+
+  Set<String> findAllColors();
 }

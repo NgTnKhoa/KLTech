@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ProductResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +200,7 @@
       <workItem from="1748580792288" duration="13355000" />
       <workItem from="1748684991194" duration="1131000" />
       <workItem from="1748711444925" duration="2132000" />
-      <workItem from="1748748616692" duration="4348000" />
+      <workItem from="1748748616692" duration="5655000" />
     </task>
     <servers />
   </component>

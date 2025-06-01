@@ -6,6 +6,7 @@ import com.kltech.product_service.services.IProductService;
 import com.kltech.product_service.services.IReviewService;
 import java.util.List;
 
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -101,6 +102,19 @@ public class ProductController {
             .data(null)
             .statusCode(200)
             .status(true)
+            .build());
+  }
+
+  @GetMapping("/colors")
+  public ResponseEntity<BaseResponse> findAllColors() {
+    Set<String> colors = productService.findAllColors();
+
+    return ResponseEntity.ok()
+        .body(BaseResponse.builder()
+            .message("Get All Colors Successfully")
+            .status(true)
+            .data(colors)
+            .statusCode(200)
             .build());
   }
 }
