@@ -12,5 +12,6 @@ public class ProductResponse {
     private double price;
     private double discount;
     private String status;
+    private boolean featured;
     private String categoryId;
 }

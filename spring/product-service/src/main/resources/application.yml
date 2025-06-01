@@ -1,8 +1,10 @@
 server:
   port: 8081
 spring:
+  application:
+    name: product-service
   datasource:
-    name: 'product-service-app'
+    name: product-service
     master:
 #      url: jdbc:mysql://master_db:3306/kltech
       url: jdbc:mysql://localhost:3306/kltech?useSSL=false&autoReconnect=true

@@ -18,7 +18,7 @@ public class ApiGatewayApplication {
     return builder.routes()
         .route("auth-service", r -> r.path("/api/v1/auth/**")
             .uri("http://localhost:8080"))
-        .route("product-service", r -> r.path("/api/v1/products/**", "/api/v1/categories/**")
+        .route("product-service", r -> r.path("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/files/**")
             .uri("http://localhost:8081"))
         .build();
   }

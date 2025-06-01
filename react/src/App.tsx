@@ -13,6 +13,7 @@ import OffersPage from "./pages/OffersPage";
 import NotFound from "./pages/NotFound";
 import LoginPage from "@/pages/LoginPage.tsx";
 import RegisterPage from "@/pages/RegisterPage.tsx";
+import AdminPage from "@/pages/AdminPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
               <Route path="/" element={<HomePage/>}/>
               <Route path="/login" element={<LoginPage/>}/>
               <Route path="/register" element={<RegisterPage/>}/>
+              <Route path="/admin" element={<AdminPage/>}/>
               <Route path="/categories" element={<CategoriesPage/>}/>
               <Route path="/category/:categoryId" element={<CategoryPage/>}/>
               <Route path="/product/:productId" element={<ProductPage/>}/>

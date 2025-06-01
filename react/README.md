@@ -5,6 +5,3 @@ This project is built with :
 - React
 - shadcn-ui
 - Tailwind CSS
-
-
-https://clothing-ecommerce-opal.vercel.app/

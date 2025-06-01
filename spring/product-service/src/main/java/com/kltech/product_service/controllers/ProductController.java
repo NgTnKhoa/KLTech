@@ -1,7 +1,9 @@
 package com.kltech.product_service.controllers;
 
 import com.kltech.product_service.models.responses.ProductResponse;
+import com.kltech.product_service.models.responses.ReviewResponse;
 import com.kltech.product_service.services.IProductService;
+import com.kltech.product_service.services.IReviewService;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
@@ -25,21 +27,30 @@ import com.kltech.product_service.models.responses.BaseResponse;
 public class ProductController {
 
   private final IProductService productService;
+  private final IReviewService reviewService;
 
   @GetMapping
-  public ResponseEntity<BaseResponse> findAll(@RequestParam(required = false) String categoryId) {
-    List<ProductResponse> products = null;
-    if (categoryId != null && !categoryId.isBlank()) {
-      products = productService.findByCategoryId(categoryId);
-    } else {
-      products = productService.findAll();
-    }
+  public ResponseEntity<BaseResponse> findAll() {
+    List<ProductResponse> products = productService.findAll();
     return ResponseEntity
         .ok()
         .body(BaseResponse.builder()
             .message("Get All Products Successfully")
             .status(true)
             .data(products)
+            .statusCode(200)
+            .build());
+  }
+
+  @GetMapping("/{id}/reviews")
+  public ResponseEntity<BaseResponse> findAllReviews(@PathVariable String id) {
+    List<ReviewResponse> reviews = reviewService.findByReviewId(id);
+    return ResponseEntity
+        .ok()
+        .body(BaseResponse.builder()
+            .message("Get All Reviews By Product ID Successfully")
+            .status(true)
+            .data(reviews)
             .statusCode(200)
             .build());
   }

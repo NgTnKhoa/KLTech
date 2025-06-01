@@ -9,7 +9,7 @@ export const productService = {
   ) => {
     try {
       return await fetchApi.get<Product>(
-          `/api/v1/products`,
+          `/products`,
           // {
           //   params: {limit, offset},
           // },
@@ -21,7 +21,7 @@ export const productService = {
   getProductById: async (productId: string) => {
     try {
       return await fetchApi.get<Product>(
-          `/api/v1/products/${productId}`,
+          `/products/${productId}`,
       );
     } catch (error) {
       return handleApiError(error, null);
@@ -30,39 +30,21 @@ export const productService = {
   getProductByCategoryId: async (categoryId: string) => {
     try {
       return await fetchApi.get<Product>(
-          `/api/v1/products?categoryId=${categoryId}`,
+          `/products?categoryId=${categoryId}`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
+  },
+
+  updateProduct: async (productId: string, data: Product) => {
+    try {
+      return await fetchApi.put<Product>(
+          `/products/${productId}`,
+          data,
       );
     } catch (error) {
       return handleApiError(error, null);
     }
   }
-
-  // writeComment: async (newsId: string, content: string) => {
-  //   try {
-  //     const response = await fetchApi.post<Comment>(
-  //         `/news/${newsId}/comments`,
-  //         {
-  //           content,
-  //         },
-  //     );
-  //     return response;
-  //   } catch (error) {
-  //     return handleApiError(error, null);
-  //   }
-  // },
-  //
-  // putReaction: async (
-  //     commentId: string,
-  //     reaction: "like" | "dislike" | "reward",
-  // ) => {
-  //   try {
-  //     const response = await fetchApi.put<Comment>(
-  //         `/comments/${commentId}/reactions`,
-  //         {reaction},
-  //     );
-  //     return response;
-  //   } catch (error) {
-  //     return handleApiError(error, null);
-  //   }
-  // },
 };

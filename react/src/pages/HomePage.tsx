@@ -67,7 +67,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {
               categories
-              .slice(0, 3)
+              .filter((category) => category.featured)
               .map((category) => (
                   <CategoryCard key={category.id} category={category}/>
               ))
@@ -83,7 +83,7 @@ const HomePage = () => {
               Shop All <ArrowRight className="ml-1 h-4 w-4"/>
             </Link>
           </div>
-          <ProductGrid products={products.slice(0, 4)}/>
+          <ProductGrid products={products.filter((product) => product.featured)}/>
         </section>
 
         {/* Sale Section */}
@@ -116,7 +116,7 @@ const HomePage = () => {
         {/* Sale Products */}
         <section className="container px-4 py-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-8">On Sale</h2>
-          <ProductGrid products={products.slice(0, 4)}/>
+          <ProductGrid products={products.sort((a,b) => b.discount - a.discount).slice(0, 4)}/>
           <div className="mt-10 flex justify-center">
             <Link to="/offers">
               <Button variant="outline" className="px-8">View All Sale Items</Button>

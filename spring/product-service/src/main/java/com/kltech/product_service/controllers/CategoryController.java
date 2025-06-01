@@ -1,6 +1,8 @@
 package com.kltech.product_service.controllers;
 
 import com.kltech.product_service.models.responses.CategoryResponse;
+import com.kltech.product_service.models.responses.ProductResponse;
+import com.kltech.product_service.services.IProductService;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,7 @@ import com.kltech.product_service.models.responses.BaseResponse;
 public class CategoryController {
 
   private final ICategoryService categoryService;
+  private final IProductService productService;
 
   @GetMapping
   public ResponseEntity<BaseResponse> findAll() {
@@ -35,6 +38,19 @@ public class CategoryController {
             .message("Get All Categories Successfully")
             .status(true)
             .data(categories)
+            .statusCode(200)
+            .build());
+  }
+
+  @GetMapping("/{id}/products")
+  public ResponseEntity<BaseResponse> findAllProducts(@PathVariable String id) {
+    List<ProductResponse> products = productService.findByCategoryId(id);
+    return ResponseEntity
+        .ok()
+        .body(BaseResponse.builder()
+            .message("Get All Products By Category ID Successfully")
+            .status(true)
+            .data(products)
             .statusCode(200)
             .build());
   }

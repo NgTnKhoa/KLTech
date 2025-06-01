@@ -24,10 +24,8 @@ public class FileService implements IFileService {
         .name(file.getOriginalFilename())
         .type(file.getContentType())
         .data(FileUtils.compressFile(file.getBytes())).build());
-    if (imageData != null) {
-      return "file uploaded successfully : " + file.getOriginalFilename();
-    }
-    return null;
+
+    return imageData.getId();
   }
 
 

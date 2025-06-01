@@ -33,6 +33,9 @@ public class Category extends Base {
   @Column(name = "thumbnail")
   private String thumbnail;
 
+  @Column(name = "featured")
+  private boolean featured;
+
   @OneToMany(mappedBy = "category")
   private List<Product> products;
 }

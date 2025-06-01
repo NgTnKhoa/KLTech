@@ -4,8 +4,10 @@ export interface Product {
   slug: string;
   description: string;
   thumbnail: string;
-  price: string;
-  discount: string;
+  price: number;
+  discount: number;
   status: string;
+  featured: string;
   categoryId: string;
+  colors: string[];
 }

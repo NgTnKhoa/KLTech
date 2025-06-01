@@ -10,5 +10,6 @@ public class CategoryResponse {
     private String slug;
     private String description;
     private String thumbnail;
+    private boolean featured;
     private List<ProductResponse> products;
 }

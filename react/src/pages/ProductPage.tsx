@@ -31,7 +31,9 @@ const ProductPage = () => {
     if (productId) {
 
       const getProduct = async () => {
-        const foundProduct = await productService.getProductById(productId);
+        let foundProduct = await productService.getProductById(productId);
+        foundProduct = foundProduct.data
+        console.log(foundProduct)
         if (foundProduct) {
           setProduct(foundProduct);
           setSelectedImage(foundProduct.thumbnail);
@@ -74,7 +76,7 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     if (product && selectedSize && selectedColor) {
-      addToCart(product, quantity, selectedSize, selectedColor);
+      addToCart(product);
     }
   };
 
@@ -99,9 +101,9 @@ const ProductPage = () => {
             Home
           </Link>
           <ChevronRight className="h-4 w-4 mx-2 text-muted-foreground" />
-          <Link to={`/category/${product.category}`} className="text-muted-foreground hover:text-foreground">
-            {product.category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-          </Link>
+          {/*<Link to={`/category/${product.category}`} className="text-muted-foreground hover:text-foreground">*/}
+          {/*  {product.category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}*/}
+          {/*</Link>*/}
           <ChevronRight className="h-4 w-4 mx-2 text-muted-foreground" />
           <span className="font-medium">{product.name}</span>
         </div>
@@ -112,25 +114,25 @@ const ProductPage = () => {
           <div>
             <div className="aspect-square rounded-lg overflow-hidden bg-secondary mb-4">
               <img 
-                src={selectedImage} 
+                src={`http://localhost:80/api/v1/files/${product.thumbnail}`}
                 alt={product.name} 
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="grid grid-cols-4 gap-2">
-              {product.images.map((image, index) => (
-                <button 
-                  key={index}
-                  className={`aspect-square rounded overflow-hidden border-2 ${selectedImage === image ? 'border-primary' : 'border-transparent'}`}
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <img 
-                    src={image} 
-                    alt={`${product.name} ${index + 1}`} 
-                    className="h-full w-full object-cover object-center"
-                  />
-                </button>
-              ))}
+              {/*{product.images.map((image, index) => (*/}
+              {/*  <button */}
+              {/*    key={index}*/}
+              {/*    className={`aspect-square rounded overflow-hidden border-2 ${selectedImage === image ? 'border-primary' : 'border-transparent'}`}*/}
+              {/*    onClick={() => setSelectedImage(image)}*/}
+              {/*  >*/}
+              {/*    <img */}
+              {/*      src={image} */}
+              {/*      alt={`${product.name} ${index + 1}`} */}
+              {/*      className="h-full w-full object-cover object-center"*/}
+              {/*    />*/}
+              {/*  </button>*/}
+              {/*))}*/}
             </div>
           </div>
 
@@ -169,21 +171,21 @@ const ProductPage = () => {
               <div>
                 <h3 className="font-medium mb-2">Size</h3>
                 <RadioGroup value={selectedSize} onValueChange={setSelectedSize} className="flex flex-wrap gap-2">
-                  {product.sizes.map((size) => (
-                    <div key={size}>
-                      <RadioGroupItem 
-                        value={size} 
-                        id={`size-${size}`} 
-                        className="sr-only peer" 
-                      />
-                      <Label
-                        htmlFor={`size-${size}`}
-                        className="flex h-9 w-9 items-center justify-center rounded-md border bg-background text-sm font-medium transition-colors hover:border-primary peer-data-[state=checked]:border-2 peer-data-[state=checked]:border-primary peer-data-[state=checked]:text-foreground cursor-pointer"
-                      >
-                        {size}
-                      </Label>
-                    </div>
-                  ))}
+                  {/*{product.sizes.map((size) => (*/}
+                  {/*  <div key={size}>*/}
+                  {/*    <RadioGroupItem */}
+                  {/*      value={size} */}
+                  {/*      id={`size-${size}`} */}
+                  {/*      className="sr-only peer" */}
+                  {/*    />*/}
+                  {/*    <Label*/}
+                  {/*      htmlFor={`size-${size}`}*/}
+                  {/*      className="flex h-9 w-9 items-center justify-center rounded-md border bg-background text-sm font-medium transition-colors hover:border-primary peer-data-[state=checked]:border-2 peer-data-[state=checked]:border-primary peer-data-[state=checked]:text-foreground cursor-pointer"*/}
+                  {/*    >*/}
+                  {/*      {size}*/}
+                  {/*    </Label>*/}
+                  {/*  </div>*/}
+                  {/*))}*/}
                 </RadioGroup>
               </div>
 
@@ -191,25 +193,25 @@ const ProductPage = () => {
               <div>
                 <h3 className="font-medium mb-2">Color</h3>
                 <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="flex gap-3">
-                  {product.colors.map((color) => (
-                    <div key={color.name} className="flex flex-col items-center gap-1">
-                      <RadioGroupItem 
-                        value={color.name} 
-                        id={`color-${color.name}`} 
-                        className="sr-only peer" 
-                      />
-                      <Label
-                        htmlFor={`color-${color.name}`}
-                        className="flex h-8 w-8 items-center justify-center rounded-full border-2 peer-data-[state=checked]:border-primary cursor-pointer"
-                      >
-                        <span 
-                          className="h-6 w-6 rounded-full"
-                          style={{ backgroundColor: color.value }}
-                        ></span>
-                      </Label>
-                      <span className="text-xs">{color.name}</span>
-                    </div>
-                  ))}
+                  {/*{product.colors.map((color) => (*/}
+                  {/*  <div key={color.name} className="flex flex-col items-center gap-1">*/}
+                  {/*    <RadioGroupItem */}
+                  {/*      value={color.name} */}
+                  {/*      id={`color-${color.name}`} */}
+                  {/*      className="sr-only peer" */}
+                  {/*    />*/}
+                  {/*    <Label*/}
+                  {/*      htmlFor={`color-${color.name}`}*/}
+                  {/*      className="flex h-8 w-8 items-center justify-center rounded-full border-2 peer-data-[state=checked]:border-primary cursor-pointer"*/}
+                  {/*    >*/}
+                  {/*      <span */}
+                  {/*        className="h-6 w-6 rounded-full"*/}
+                  {/*        style={{ backgroundColor: color.value }}*/}
+                  {/*      ></span>*/}
+                  {/*    </Label>*/}
+                  {/*    <span className="text-xs">{color.name}</span>*/}
+                  {/*  </div>*/}
+                  {/*))}*/}
                 </RadioGroup>
               </div>
 

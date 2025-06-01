@@ -8,8 +8,9 @@ public class ProductRequest {
     private String slug;
     private String description;
     private String thumbnail;
-    private String price;
-    private String discount;
+    private double price;
+    private double discount;
     private String status;
+    private boolean featured;
     private String categoryId;
 }

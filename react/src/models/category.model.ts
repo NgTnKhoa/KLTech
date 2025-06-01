@@ -4,4 +4,5 @@ export interface Category {
   slug: string;
   description: string;
   thumbnail: string;
+  featured: string;
 }

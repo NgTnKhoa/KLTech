@@ -60,13 +60,19 @@ export const fetchApi = {
 
   async post<T>(endpoint: string, data: any, customHeaders = {}): Promise<T> {
     const url = `${BASE_URL}${endpoint}`;
+    const isFormData = data instanceof FormData;
+
+    const headers: Record<string, string> = isFormData
+        ? { ...customHeaders }
+        : {
+          "Content-Type": "application/json",
+          ...customHeaders,
+        };
+
     const options: RequestOptions = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...customHeaders,
-      },
-      body: JSON.stringify(data),
+      headers,
+      body: isFormData ? data : JSON.stringify(data),
     };
 
     const response = await fetchWithTimeout(url, options);
@@ -80,7 +86,13 @@ export const fetchApi = {
       );
     }
 
-    return await response.json();
+    const contentType = response.headers.get("Content-Type") || "";
+
+    if (contentType.includes("application/json")) {
+      return await response.json();
+    } else {
+      return await response.text();
+    }
   },
 
   async put<T>(endpoint: string, data: any, customHeaders = {}): Promise<T> {

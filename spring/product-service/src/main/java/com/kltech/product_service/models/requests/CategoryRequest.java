@@ -8,4 +8,5 @@ public class CategoryRequest {
     private String slug;
     private String description;
     private String thumbnail;
+    private boolean featured;
 }

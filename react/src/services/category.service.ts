@@ -9,7 +9,7 @@ export const categoryService = {
   ) => {
     try {
       return await fetchApi.get<Category>(
-          `/api/v1/categories`,
+          `/categories`,
           // {
           //   params: {limit, offset},
           // },
@@ -21,39 +21,20 @@ export const categoryService = {
   getCategoryById: async (categoryId: string) => {
     try {
       return await fetchApi.get<Category>(
-          `/api/v1/categories/${categoryId}`,
+          `/categories/${categoryId}`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
+  },
+  updateCategory: async (categoryId: string, data: Category) => {
+    try {
+      return await fetchApi.put<Category>(
+          `/categories/${categoryId}`,
+          data,
       );
     } catch (error) {
       return handleApiError(error, null);
     }
   }
-
-  // writeComment: async (newsId: string, content: string) => {
-  //   try {
-  //     const response = await fetchApi.post<Comment>(
-  //         `/news/${newsId}/comments`,
-  //         {
-  //           content,
-  //         },
-  //     );
-  //     return response;
-  //   } catch (error) {
-  //     return handleApiError(error, null);
-  //   }
-  // },
-  //
-  // putReaction: async (
-  //     commentId: string,
-  //     reaction: "like" | "dislike" | "reward",
-  // ) => {
-  //   try {
-  //     const response = await fetchApi.put<Comment>(
-  //         `/comments/${commentId}/reactions`,
-  //         {reaction},
-  //     );
-  //     return response;
-  //   } catch (error) {
-  //     return handleApiError(error, null);
-  //   }
-  // },
 };
