@@ -13,11 +13,11 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 public interface ProductMapper {
 
     @Mapping(source = "category.id", target = "categoryId")
-//    @Mapping(source = "colors", target = "colors")
+    @Mapping(source = "colors", target = "colors")
     ProductResponse toProductResponse(Product product);
 
     @Mapping(source = "categoryId", target = "category.id")
-//    @Mapping(source = "colors", target = "colors")
+    @Mapping(source = "colors", target = "colors")
     Product toProductEntity(ProductRequest request);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

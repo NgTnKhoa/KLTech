@@ -11,6 +11,7 @@ public class ProductRequest {
     private double price;
     private double discount;
     private String status;
+    private String[] colors;
     private boolean featured;
     private String categoryId;
 }

@@ -5,99 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../react/src/components/category-columns.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/components/category-edit-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/components/category-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/components/data-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/components/product-edit-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/components/product-table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/pages/AdminPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/pages/CreateCategoryPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/pages/CreateProductPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/services/file.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/DataSourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/DataSourceContextHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/DataSourceRoutingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/JpaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/MasterDataSourceProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/RoutingDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/configs/db/SlaveDataSourceProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/controllers/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/controllers/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/entities/Base.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/entities/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/entities/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/entities/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/enums/DataSourceTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/mappers/OrderItemMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/mappers/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/mappers/PaymentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/requests/OrderItemRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/requests/OrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/requests/PaymentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/responses/BaseResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/responses/OrderItemResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/responses/OrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/models/responses/PaymentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/repositories/OrderItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/repositories/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/repositories/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/services/IOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/services/IPaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/services/impls/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/java/com/kltech/order_service/services/impls/PaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-service/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Review.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ReviewMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ReviewRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ReviewResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/repositories/ReviewRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-service/src/main/resources/banner.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../react/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/../react/bun.lockb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../react/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/ui/dropdown-menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/ui/dropdown-menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/ui/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/ui/sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/ui/tooltip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/ui/tooltip.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/models/category.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/models/category.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/models/product.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/models/product.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/category.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/utils/fetch-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/utils/fetch-api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/tailwind.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/configs/db/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/CategoryRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/CategoryRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/CategoryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/CategoryResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ProductResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/repositories/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,12 +50,12 @@
     &quot;assignee&quot;: &quot;NgTnKhoa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/NgTnKhoa/KTTech.git&quot;,
-    &quot;accountId&quot;: &quot;31eeac24-8263-4320-a10a-e6a6b30747dd&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NgTnKhoa/KLTech.git",
+    "accountId": "31eeac24-8263-4320-a10a-e6a6b30747dd"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -289,7 +202,7 @@
       <workItem from="1748580792288" duration="13355000" />
       <workItem from="1748684991194" duration="1131000" />
       <workItem from="1748711444925" duration="2132000" />
-      <workItem from="1748748616692" duration="3157000" />
+      <workItem from="1748748616692" duration="4348000" />
     </task>
     <servers />
   </component>

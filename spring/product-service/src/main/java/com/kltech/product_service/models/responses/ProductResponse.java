@@ -14,4 +14,5 @@ public class ProductResponse {
     private String status;
     private boolean featured;
     private String categoryId;
+    private String[] colors;
 }

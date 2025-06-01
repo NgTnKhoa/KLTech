@@ -42,6 +42,9 @@ public class Product extends Base {
   @Column(name = "status")
   private String status;
 
+  @Column(name = "colors")
+  private List<String> colors;
+
   @Column(name = "featured")
   private boolean featured;
 
