@@ -32,7 +32,6 @@ export interface CartItem {
 export interface FilterOptions {
   minPrice?: number;
   maxPrice?: number;
-  sizes?: string[];
   colors?: string[];
-  sortBy?: 'price-low' | 'price-high' | 'newest';
+  sortBy?: 'price-low' | 'price-high';
 }

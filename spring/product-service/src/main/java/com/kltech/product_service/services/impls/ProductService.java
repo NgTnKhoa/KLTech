@@ -58,4 +58,9 @@ public class ProductService implements IProductService {
   public List<ProductResponse> findByCategoryId(String categoryId) {
     return productRepository.findAllByCategory_Id(categoryId).stream().map(productMapper::toProductResponse).toList();
   }
+
+  @Override
+  public List<ProductResponse> findAllFeaturedProducts() {
+    return productRepository.findAll().stream().filter(Product::isFeatured).map(productMapper::toProductResponse).toList();
+  }
 }

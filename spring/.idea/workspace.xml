@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../react/src/components/products/ReviewCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/category-columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/category-columns.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/products/CategoryCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/CategoryCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/products/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/Filters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/products/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/ProductCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/data/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/data/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/CategoryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CategoryPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/category.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/ICategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -205,7 +214,7 @@
       <workItem from="1748580792288" duration="13355000" />
       <workItem from="1748684991194" duration="1131000" />
       <workItem from="1748711444925" duration="2132000" />
-      <workItem from="1748748616692" duration="7066000" />
+      <workItem from="1748748616692" duration="10494000" />
     </task>
     <servers />
   </component>

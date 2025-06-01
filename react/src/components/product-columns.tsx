@@ -9,7 +9,7 @@ export const productColumns: ColumnDef<Product>[] = [
     header: "Thumbnail",
     cell: ({row}) => (
         <img
-            src={`http://localhost:8081/api/v1/files/${row.getValue("thumbnail")}`}
+            src={`http://localhost:80/api/v1/files/${row.getValue("thumbnail")}`}
             alt="Thumbnail"
             className="h-12 w-12 rounded object-cover"
         />

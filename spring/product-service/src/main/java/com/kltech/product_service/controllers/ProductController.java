@@ -104,4 +104,17 @@ public class ProductController {
             .status(true)
             .build());
   }
+
+  @GetMapping("/featured")
+  public ResponseEntity<BaseResponse> findAllFeaturedProducts() {
+    List<ProductResponse> products = productService.findAllFeaturedProducts();
+    return ResponseEntity
+        .ok()
+        .body(BaseResponse.builder()
+            .message("Get All Featured Products Successfully")
+            .status(true)
+            .data(products)
+            .statusCode(200)
+            .build());
+  }
 }

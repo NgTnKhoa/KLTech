@@ -37,5 +37,15 @@ export const productService = {
     } catch (error) {
       return handleApiError(error, null);
     }
+  },
+
+  getAllFeaturedProducts: async () => {
+    try {
+      return await fetchApi.get<Product>(
+          `/products/featured`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
   }
 };

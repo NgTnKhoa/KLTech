@@ -19,7 +19,6 @@ const HomePage = () => {
     const getProducts = async () => {
       const response = await productService.getProducts();
       setProducts(response.data);
-      console.log(response);
     }
 
     const getCategories = async () => {

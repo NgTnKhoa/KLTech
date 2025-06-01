@@ -49,7 +49,7 @@ export const categoryService = {
   getAllColors: async (categoryId: string) => {
     try {
       return await fetchApi.get<string[]>(
-          `/${categoryId}/colors`,
+          `/categories/${categoryId}/colors`,
       );
     } catch (error) {
       return handleApiError(error, null);

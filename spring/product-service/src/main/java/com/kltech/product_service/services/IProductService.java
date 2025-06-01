@@ -22,4 +22,6 @@ public interface IProductService {
   ProductResponse findById(String id);
 
   List<ProductResponse> findByCategoryId(String categoryId);
+
+  List<ProductResponse> findAllFeaturedProducts();
 }

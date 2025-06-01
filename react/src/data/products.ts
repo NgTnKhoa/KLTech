@@ -25,7 +25,7 @@ export const categories: Category[] = [
   {
     id: "Máy ảnh & Thiết bị quay phim",
     name: "Máy ảnh & Thiết bị quay phim",
-    image: "http://localhost:8081/api/v1/files/143cec1b-bf17-4829-8951-5cf9eda97d91",
+    image: "http://localhost:80/api/v1/files/143cec1b-bf17-4829-8951-5cf9eda97d91",
     description: "Máy ảnh DSLR, mirrorless, drone, camera hành trình, phụ kiện chụp ảnh.",
     featured: false
   },

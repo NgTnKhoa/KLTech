@@ -12,8 +12,7 @@ interface FiltersProps {
 }
 
 const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([9000000, 35000000]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("newest");
 
@@ -28,15 +27,14 @@ const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
       minPrice: priceRange[0],
       maxPrice: priceRange[1],
       colors: selectedColors.length > 0 ? selectedColors : undefined,
-      sortBy: sortBy as any,
+      // sortBy: sortBy as 'price-low' | 'price-high',
     });
   };
 
   const resetFilters = () => {
-    setPriceRange([0, 200]);
-    setSelectedSizes([]);
+    setPriceRange([9000000, 35000000]);
     setSelectedColors([]);
-    setSortBy("newest");
+    // setSortBy("newest");
     onFilterChange({});
   };
 
@@ -60,9 +58,9 @@ const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
           <h3 className="font-medium mb-3">Price Range</h3>
           <Slider
               value={priceRange}
-              min={0}
-              max={200}
-              step={10}
+              min={9000000}
+              max={15000000}
+              step={100000}
               onValueChange={(value) => setPriceRange(value as [number, number])}
               className="mb-2"
           />

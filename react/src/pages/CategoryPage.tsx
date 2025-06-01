@@ -31,11 +31,13 @@ const CategoryPage = () => {
       const getProducts = async () => {
         const response = await categoryService.getAllProducts(categoryId);
         setProducts(response.data);
+        setFilteredProducts(response.data);
       }
 
       const getAllColors = async () => {
         const response = await categoryService.getAllColors(categoryId);
         setColors(response.data);
+        console.log(response.data);
       }
 
       getCategory();
@@ -51,15 +53,11 @@ const CategoryPage = () => {
     result = filterProducts(result, filters);
 
     // Apply sorting
-    result = sortProducts(result, filters.sortBy);
+    // result = sortProducts(result, filters.sortBy);
 
     setFilteredProducts(result);
   };
 
-  // const availableColors = products.flatMap(product => product.colors)
-  //   .filter((color, index, self) =>
-  //     index === self.findIndex(c => c.name === color.name)
-  //   );
 
   if (!category) {
     return (
@@ -111,7 +109,7 @@ const CategoryPage = () => {
 
             {/* Product Grid */}
             <div className="flex-1">
-              {products.length === 0 ? (
+              {filteredProducts.length === 0 ? (
                   <div className="text-center py-12">
                     <p className="text-muted-foreground mb-4">No products match your filters</p>
                     <Button onClick={() => handleFilterChange({})}>Reset Filters</Button>
@@ -119,9 +117,9 @@ const CategoryPage = () => {
               ) : (
                   <>
                     <div className="mb-4 text-sm text-muted-foreground">
-                      Showing {products.length} {products.length === 1 ? 'product' : 'products'}
+                      Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
                     </div>
-                    <ProductGrid products={products}/>
+                    <ProductGrid products={filteredProducts}/>
                   </>
               )}
             </div>

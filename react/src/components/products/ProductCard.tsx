@@ -14,7 +14,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <div className="product-image-container aspect-[3/4] w-full overflow-hidden rounded-md bg-secondary">
         <Link to={`/product/${product.id}`}>
           <img
-            src={`http://localhost:8081/api/v1/files/${product.thumbnail}`}
+            src={`http://localhost:80/api/v1/files/${product.thumbnail}`}
             alt={product.name}
             className="h-full w-full object-cover object-center transition-all duration-300"
           />
@@ -35,18 +35,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <h3 className="text-sm font-medium">{product.name}</h3>
         </Link>
         <div className="mt-1 flex items-center">
-          {/*{product.salePrice ? (*/}
-          {/*  <>*/}
-          {/*    <span className="text-sm font-medium text-destructive">*/}
-          {/*      {formatCurrency(product.salePrice)}*/}
-          {/*    </span>*/}
-          {/*    <span className="ml-2 text-sm text-muted-foreground line-through">*/}
-          {/*      {formatCurrency(product.price)}*/}
-          {/*    </span>*/}
-          {/*  </>*/}
-          {/*) : (*/}
-          {/*  <span className="text-sm font-medium">{formatCurrency(product.price)}</span>*/}
-          {/*)}*/}
+          {product.price ? (
+            <>
+              <span className="text-sm font-medium text-destructive">
+                {formatCurrency(product.price * (1 - product.discount / 100))}
+              </span>
+              <span className="ml-2 text-sm text-muted-foreground line-through">
+                {formatCurrency(product.price)}
+              </span>
+            </>
+          ) : (
+            <span className="text-sm font-medium">{formatCurrency(product.price)}</span>
+          )}
         </div>
       </div>
     </div>

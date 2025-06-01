@@ -12,7 +12,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
       <div className="category-card relative rounded-lg overflow-hidden bg-secondary group">
         <div className="aspect-square w-full">
           <img
-            src={`http://localhost:8081/api/v1/files/${category.thumbnail}`}
+            src={`http://localhost:80/api/v1/files/${category.thumbnail}`}
             alt={category.name}
             className="h-full w-full object-cover object-center transition-all duration-500 group-hover:scale-105"
           />
