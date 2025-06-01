@@ -8,7 +8,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/c
 
 interface FiltersProps {
   onFilterChange: (filters: FilterOptions) => void;
-  availableColors: { name: string; value: string }[];
+  availableColors: string[];
 }
 
 const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
@@ -80,19 +80,19 @@ const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
           <div className="grid grid-cols-2 gap-2">
             {
               availableColors.map((color) => (
-                  <div key={color.name} className="flex items-center space-x-2">
+                  <div key={color} className="flex items-center space-x-2">
                     <Checkbox
-                        id={`color-${color.name}`}
-                        checked={selectedColors.includes(color.name)}
-                        onCheckedChange={() => handleColorToggle(color.name)}
+                        id={`color-${color}`}
+                        checked={selectedColors.includes(color)}
+                        onCheckedChange={() => handleColorToggle(color)}
                     />
                     <div className="flex items-center">
                 <span
                     className="w-4 h-4 rounded-full mr-2 inline-block border"
-                    style={{backgroundColor: color.value}}
+                    style={{backgroundColor: color}}
                 ></span>
-                      <Label htmlFor={`color-${color.name}`} className="text-sm cursor-pointer">
-                        {color.name}
+                      <Label htmlFor={`color-${color}`} className="text-sm cursor-pointer">
+                        {color}
                       </Label>
                     </div>
                   </div>

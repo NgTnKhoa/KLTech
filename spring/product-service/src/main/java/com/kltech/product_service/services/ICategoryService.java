@@ -4,6 +4,7 @@ import com.kltech.product_service.models.requests.CategoryRequest;
 import com.kltech.product_service.models.responses.CategoryResponse;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 public interface ICategoryService {
 
@@ -20,4 +21,6 @@ public interface ICategoryService {
 
   @Transactional
   CategoryResponse findById(String id);
+
+  Set<String> findAllColors(String id);
 }

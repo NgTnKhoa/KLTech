@@ -27,15 +27,6 @@ export const productService = {
       return handleApiError(error, null);
     }
   },
-  getProductByCategoryId: async (categoryId: string) => {
-    try {
-      return await fetchApi.get<Product>(
-          `/products?categoryId=${categoryId}`,
-      );
-    } catch (error) {
-      return handleApiError(error, null);
-    }
-  },
 
   updateProduct: async (productId: string, data: Product) => {
     try {

@@ -36,5 +36,23 @@ export const categoryService = {
     } catch (error) {
       return handleApiError(error, null);
     }
+  },
+  getAllProducts: async (categoryId: string) => {
+    try {
+      return await fetchApi.get<Category>(
+          `/categories/${categoryId}/products`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
+  },
+  getAllColors: async (categoryId: string) => {
+    try {
+      return await fetchApi.get<string[]>(
+          `/${categoryId}/colors`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
   }
 };

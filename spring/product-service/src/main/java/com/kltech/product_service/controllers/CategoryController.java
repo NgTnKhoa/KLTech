@@ -5,6 +5,7 @@ import com.kltech.product_service.models.responses.ProductResponse;
 import com.kltech.product_service.services.IProductService;
 import java.util.List;
 
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -112,6 +113,18 @@ public class CategoryController {
             .data(null)
             .statusCode(200)
             .status(true)
+            .build());
+  }
+
+  @GetMapping("/{id}/colors")
+  public ResponseEntity<BaseResponse> findAllColors(@PathVariable String id) {
+    Set<String> colors = categoryService.findAllColors(id);
+    return ResponseEntity.ok()
+        .body(BaseResponse.builder()
+            .message("Get All Colors Successfully")
+            .status(true)
+            .data(colors)
+            .statusCode(200)
             .build());
   }
 }

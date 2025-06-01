@@ -22,6 +22,4 @@ public interface IProductService {
   ProductResponse findById(String id);
 
   List<ProductResponse> findByCategoryId(String categoryId);
-
-  Set<String> findAllColors();
 }

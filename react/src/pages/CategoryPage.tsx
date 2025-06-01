@@ -19,6 +19,7 @@ const CategoryPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [category, setCategory] = useState<Category>(null);
+  const [colors, setColors] = useState<string[]>([]);
 
   useEffect(() => {
     if (categoryId) {
@@ -28,12 +29,18 @@ const CategoryPage = () => {
       }
 
       const getProducts = async () => {
-        const response = await productService.getProductByCategoryId(categoryId);
+        const response = await categoryService.getAllProducts(categoryId);
         setProducts(response.data);
+      }
+
+      const getAllColors = async () => {
+        const response = await categoryService.getAllColors(categoryId);
+        setColors(response.data);
       }
 
       getCategory();
       getProducts();
+      getAllColors();
     }
   }, [categoryId]);
 
@@ -49,7 +56,6 @@ const CategoryPage = () => {
     setFilteredProducts(result);
   };
 
-  // Extract unique sizes and colors from products
   // const availableColors = products.flatMap(product => product.colors)
   //   .filter((color, index, self) =>
   //     index === self.findIndex(c => c.name === color.name)
@@ -80,7 +86,7 @@ const CategoryPage = () => {
             <div className="hidden md:block w-64 shrink-0">
               <Filters
                   onFilterChange={handleFilterChange}
-                  availableColors={[{name: 'asas', value: 'white'}, {name: 'asasaaa', value: 'red'}]}
+                  availableColors={colors}
               />
             </div>
 
@@ -97,7 +103,7 @@ const CategoryPage = () => {
                   <h2 className="text-lg font-semibold mb-6">Filters</h2>
                   <Filters
                       onFilterChange={handleFilterChange}
-                      availableColors={[{name: 'asas', value: 'white'}, {name: 'asasaaa', value: 'red'}]}
+                      availableColors={colors}
                   />
                 </SheetContent>
               </Sheet>

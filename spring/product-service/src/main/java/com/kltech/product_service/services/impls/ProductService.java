@@ -58,14 +58,4 @@ public class ProductService implements IProductService {
   public List<ProductResponse> findByCategoryId(String categoryId) {
     return productRepository.findAllByCategory_Id(categoryId).stream().map(productMapper::toProductResponse).toList();
   }
-
-  @Override
-  public Set<String> findAllColors() {
-    List<Product> products = productRepository.findAll();
-
-    return products.stream()
-        .filter(p -> p.getColors() != null && !p.getColors().isEmpty())
-        .flatMap(p -> p.getColors().stream())
-        .collect(Collectors.toSet());
-  }
 }

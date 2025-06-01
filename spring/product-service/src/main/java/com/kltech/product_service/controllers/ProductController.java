@@ -104,17 +104,4 @@ public class ProductController {
             .status(true)
             .build());
   }
-
-  @GetMapping("/colors")
-  public ResponseEntity<BaseResponse> findAllColors() {
-    Set<String> colors = productService.findAllColors();
-
-    return ResponseEntity.ok()
-        .body(BaseResponse.builder()
-            .message("Get All Colors Successfully")
-            .status(true)
-            .data(colors)
-            .statusCode(200)
-            .build());
-  }
 }
