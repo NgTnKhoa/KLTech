@@ -14,7 +14,7 @@ import lombok.Data;
 @MappedSuperclass
 @Data
 @EntityListeners(AuditEntityListener.class)
-abstract public class BaseEntity {
+public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
