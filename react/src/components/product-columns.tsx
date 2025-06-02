@@ -28,7 +28,17 @@ export const productColumns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "price",
-    header: () => <div className="text-left">Price</div>,
+    header: ({column}) => (
+        <div className="text-left">
+          <Button
+              variant="ghost"
+              className="text-left"
+              onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Price <ArrowUpDown className="ml-2 h-4 w-4"/>
+          </Button>
+        </div>
+    ),
     cell: ({row}) => {
       const price = parseFloat(row.getValue("price"));
       return <div className="text-left">{price.toLocaleString("vi-VN", {style: "currency", currency: "VND"})}</div>;
@@ -41,11 +51,22 @@ export const productColumns: ColumnDef<Product>[] = [
   },
   {
     accessorKey: "status",
-    header: () => <div className="text-center">Status</div>,
+    // header: () => <div className="text-center">Status</div>,
+    header: ({column}) => (
+        <div className="text-center">
+          <Button
+              variant="ghost"
+              className="text-center"
+              onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Status <ArrowUpDown className="ml-2 h-4 w-4"/>
+          </Button>
+        </div>
+    ),
     cell: ({row}) => (
         <div className="text-center">
           <span className={`px-2 py-1 rounded text-xs font-medium ${
-              row.getValue("status") !== "active" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+              row.getValue("status") !== "INACTIVE" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
           }`}>
             {row.getValue("status")}
           </span>

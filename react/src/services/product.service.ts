@@ -1,6 +1,6 @@
 import {fetchApi} from "@/utils/fetch-api";
 import {handleApiError} from "@/utils/exception-handler";
-import {Product} from "@/models/product.model.ts";
+import {Product, ProductRequest} from "@/models/product.model.ts";
 
 export const productService = {
   getProducts: async (
@@ -43,6 +43,17 @@ export const productService = {
     try {
       return await fetchApi.get<Product>(
           `/products/featured`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
+  },
+
+  createProduct: async (product: ProductRequest) => {
+    try {
+      return await fetchApi.post<Product>(
+          `/products`,
+          product,
       );
     } catch (error) {
       return handleApiError(error, null);

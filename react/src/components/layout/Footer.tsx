@@ -8,9 +8,9 @@ const Footer = () => {
       <div className="container px-4 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
-            <h3 className="text-lg font-semibold mb-4">STYLISH</h3>
+            <h3 className="text-lg font-semibold mb-4">KLTech</h3>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Modern, sustainable clothing for the contemporary individual. Ethically sourced and designed to last.
+              Sản phẩm hiện đại, sang trọng dành cho từng mức giá của khách hàng. Có nguồn gốc xuất nhập khẩu rõ ràng và cam kết về chất lượng.
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="#" className="text-muted-foreground hover:text-foreground">
@@ -28,46 +28,36 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-sm font-semibold mb-4">Shop</h3>
+            <h3 className="text-sm font-semibold mb-4">Cửa hàng</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/category/womens-clothing" className="text-muted-foreground hover:text-foreground">
-                  Women
+                <Link to="/category/0e744e51-3669-40ad-8bd9-cf2f566529cc" className="text-muted-foreground hover:text-foreground">
+                  Điện thoại & Phụ kiện
                 </Link>
               </li>
               <li>
-                <Link to="/category/mens-clothing" className="text-muted-foreground hover:text-foreground">
-                  Men
+                <Link to="/category/4cf792e5-84dc-4cf1-8358-9c496f05a354" className="text-muted-foreground hover:text-foreground">
+                  Máy tính & Laptop
                 </Link>
               </li>
               <li>
-                <Link to="/category/accessories" className="text-muted-foreground hover:text-foreground">
-                  Accessories
-                </Link>
-              </li>
-              <li>
-                <Link to="/offers" className="text-muted-foreground hover:text-foreground">
-                  Sale
+                <Link to="/category/28fdc328-3036-47f0-b78e-a0b482b278c3" className="text-muted-foreground hover:text-foreground">
+                  Phụ kiện công nghệ khác
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold mb-4">Help</h3>
+            <h3 className="text-sm font-semibold mb-4">Hỗ trợ</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Customer Service
+                  Dịch vụ khách hàng
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Shipping & Returns
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Size Guide
+                  Giao hàng & Trả hàng
                 </a>
               </li>
               <li>
@@ -78,26 +68,21 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold mb-4">About</h3>
+            <h3 className="text-sm font-semibold mb-4">Về chúng tôi</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Our Story
+                  Câu chuyện của chúng tôi
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Sustainability
+                  Sự nhiệp
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground">
-                  Contact Us
+                  Liên hệ với chúng tôi
                 </a>
               </li>
             </ul>
@@ -105,7 +90,7 @@ const Footer = () => {
         </div>
         <div className="border-t pt-8 mt-8">
           <p className="text-xs text-muted-foreground text-center">
-            © {new Date().getFullYear()} STYLISH. All rights reserved.
+            © {new Date().getFullYear()} KLTech. Bảo lưu mọi quyền.
           </p>
         </div>
       </div>

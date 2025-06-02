@@ -5,24 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../react/src/components/products/ReviewCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/category-columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/category-columns.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/components/ScrollToTop.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/models/cart-item.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/models/order.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/models/payment.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/services/order.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/services/payment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/bun.lockb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/layout/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/layout/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/products/CategoryCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/CategoryCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/products/Filters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/Filters.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/products/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/data/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/data/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/lib/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CategoryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CategoryPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/context/CartContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/context/CartContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/CartPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CartPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CategoriesPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/OffersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/OffersPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/category.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../react/src/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/IProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/services/impls/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,12 +69,12 @@
     &quot;assignee&quot;: &quot;NgTnKhoa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/NgTnKhoa/KLTech.git",
-    "accountId": "31eeac24-8263-4320-a10a-e6a6b30747dd"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NgTnKhoa/KLTech.git&quot;,
+    &quot;accountId&quot;: &quot;31eeac24-8263-4320-a10a-e6a6b30747dd&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -139,7 +146,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProductServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.kltech.api_gateway.ApiGatewayApplication" />
@@ -179,11 +186,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.AuthenticationServiceApplication" />
-      <item itemvalue="Spring Boot.NotificationServiceApplication" />
       <item itemvalue="Spring Boot.ProductServiceApplication" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.NotificationServiceApplication" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -214,7 +221,8 @@
       <workItem from="1748580792288" duration="13355000" />
       <workItem from="1748684991194" duration="1131000" />
       <workItem from="1748711444925" duration="2132000" />
-      <workItem from="1748748616692" duration="10494000" />
+      <workItem from="1748748616692" duration="18945000" />
+      <workItem from="1748843735391" duration="5409000" />
     </task>
     <servers />
   </component>

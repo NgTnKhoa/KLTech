@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import LoginPage from "@/pages/LoginPage.tsx";
 import RegisterPage from "@/pages/RegisterPage.tsx";
 import AdminPage from "@/pages/AdminPage.tsx";
+import ScrollToTop from "@/components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Toaster/>
           <Sonner/>
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<HomePage/>}/>
               <Route path="/login" element={<LoginPage/>}/>

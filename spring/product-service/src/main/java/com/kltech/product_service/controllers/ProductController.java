@@ -43,19 +43,6 @@ public class ProductController {
             .build());
   }
 
-  @GetMapping("/{id}/reviews")
-  public ResponseEntity<BaseResponse> findAllReviews(@PathVariable String id) {
-    List<ReviewResponse> reviews = reviewService.findByReviewId(id);
-    return ResponseEntity
-        .ok()
-        .body(BaseResponse.builder()
-            .message("Get All Reviews By Product ID Successfully")
-            .status(true)
-            .data(reviews)
-            .statusCode(200)
-            .build());
-  }
-
   @GetMapping("/{id}")
   public ResponseEntity<BaseResponse> findById(@PathVariable String id) {
     ProductResponse product = productService.findById(id);
@@ -114,6 +101,19 @@ public class ProductController {
             .message("Get All Featured Products Successfully")
             .status(true)
             .data(products)
+            .statusCode(200)
+            .build());
+  }
+
+  @GetMapping("/{id}/reviews")
+  public ResponseEntity<BaseResponse> findAllReviews(@PathVariable String id) {
+    List<ReviewResponse> reviews = reviewService.findByReviewId(id);
+    return ResponseEntity
+        .ok()
+        .body(BaseResponse.builder()
+            .message("Get All Reviews By Product ID Successfully")
+            .status(true)
+            .data(reviews)
             .statusCode(200)
             .build());
   }

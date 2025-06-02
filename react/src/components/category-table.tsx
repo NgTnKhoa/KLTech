@@ -16,7 +16,7 @@ export function CategoryTable({ data }: { data: Category[] }) {
 
   return (
       <>
-        <DataTable<Category, unknown>
+        <DataTable
             columns={categoryColumns}
             data={categories}
             onRowClick={handleRowClick}

@@ -23,9 +23,9 @@ export const authService = {
     }
   },
 
-  oauth: async (): Promise<AuthResponse> => {
+  validateToken: async (accessToken: string) => {
     try {
-      return await fetchApi.get<AuthResponse>("/auth/oauth");
+      return await fetchApi.post<boolean>(`/auth/validate-token?token=${accessToken}`);
     } catch (error) {
       return handleApiError(error, null);
     }

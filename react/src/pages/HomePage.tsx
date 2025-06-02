@@ -10,6 +10,7 @@ import {Product} from "@/models/product.model.ts";
 import {categoryService} from "@/services/category.service.ts";
 import {productService} from "@/services/product.service.ts";
 import {Category} from "@/models/category.model.ts";
+import {authService} from "@/services/auth.service.ts";
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -41,27 +42,27 @@ const HomePage = () => {
               className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">New Season Collection</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">Bộ sưu tập mùa mới</h1>
             <p className="text-lg md:text-xl mb-8 max-w-md text-center">
-              Discover our latest styles designed for the modern individual
+              Khám phá những phong cách mới nhất của chúng tôi được thiết kế dành cho cá nhân hiện đại
             </p>
-            <div className="flex gap-4">
-              <Link to="/category/womens-clothing">
-                <Button className="bg-white text-black hover:bg-white/90">Shop Women</Button>
-              </Link>
-              <Link to="/category/mens-clothing">
-                <Button className="bg-white text-black hover:bg-white/90">Shop Men</Button>
-              </Link>
-            </div>
+            {/*<div className="flex gap-4">*/}
+            {/*  <Link to="/category/device">*/}
+            {/*    <Button className="bg-white text-black hover:bg-white/90">Shop</Button>*/}
+            {/*  </Link>*/}
+            {/*  <Link to="/category/technology">*/}
+            {/*    <Button className="bg-white text-black hover:bg-white/90">Shop</Button>*/}
+            {/*  </Link>*/}
+            {/*</div>*/}
           </div>
         </section>
 
         {/* Featured Categories */}
         <section className="container px-4 py-16">
           <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold">Shop by Category</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">Mua sắm theo danh mục</h2>
             <Link to="/categories" className="text-sm font-medium flex items-center text-muted-foreground hover:text-foreground transition-colors mt-2 md:mt-0">
-              View All Categories <ArrowRight className="ml-1 h-4 w-4"/>
+              Xem tất cả các danh mục <ArrowRight className="ml-1 h-4 w-4"/>
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -78,9 +79,9 @@ const HomePage = () => {
         {/* Featured Products */}
         <section className="container px-4 py-16 bg-secondary/30">
           <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold">Featured Products</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">Sản phẩm nổi bật</h2>
             <Link to="/categories" className="text-sm font-medium flex items-center text-muted-foreground hover:text-foreground transition-colors mt-2 md:mt-0">
-              Shop All <ArrowRight className="ml-1 h-4 w-4"/>
+              Mua sắm tất cả <ArrowRight className="ml-1 h-4 w-4"/>
             </Link>
           </div>
           <ProductGrid products={products.filter((product) => product.featured)}/>
@@ -94,12 +95,12 @@ const HomePage = () => {
                 <div className="inline-block px-3 py-1 bg-destructive text-destructive-foreground rounded-full text-xs font-medium mb-4">
                   Limited Time
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Special Offers</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Khuyến mãi đặc biệt</h2>
                 <p className="text-muted-foreground mb-6">
-                  Save up to 30% on our latest collection. Limited time only.
+                  Tiết kiệm tới 30% cho bộ sưu tập mới nhất. Chỉ trong thời gian có hạn.
                 </p>
                 <Link to="/offers" className="self-start">
-                  <Button>Shop Sale</Button>
+                  <Button>Cửa hàng khuyến mãi</Button>
                 </Link>
               </div>
               <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
@@ -115,11 +116,11 @@ const HomePage = () => {
 
         {/* Sale Products */}
         <section className="container px-4 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">On Sale</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">Đang giảm giá</h2>
           <ProductGrid products={products.sort((a,b) => b.discount - a.discount).slice(0, 4)}/>
           <div className="mt-10 flex justify-center">
             <Link to="/offers">
-              <Button variant="outline" className="px-8">View All Sale Items</Button>
+              <Button variant="outline" className="px-8">Xem tất cả sản phẩm giảm giá</Button>
             </Link>
           </div>
         </section>

@@ -1,6 +1,6 @@
 import {fetchApi} from "@/utils/fetch-api";
 import {handleApiError} from "@/utils/exception-handler";
-import {Category} from "@/models/category.model.ts";
+import {Category, CategoryRequest} from "@/models/category.model.ts";
 
 export const categoryService = {
   getCategories: async (
@@ -50,6 +50,16 @@ export const categoryService = {
     try {
       return await fetchApi.get<string[]>(
           `/categories/${categoryId}/colors`,
+      );
+    } catch (error) {
+      return handleApiError(error, null);
+    }
+  },
+  createCategory: async (category: CategoryRequest) => {
+    try {
+      return await fetchApi.post<Category>(
+          `/categories`,
+          category,
       );
     } catch (error) {
       return handleApiError(error, null);

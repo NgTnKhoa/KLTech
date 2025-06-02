@@ -8,7 +8,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Alert, AlertDescription} from "@/components/ui/alert";
 import {Badge} from "@/components/ui/badge";
 import ProductGrid from "@/components/products/ProductGrid";
-import {ChevronRight, Minus, Plus, ShoppingBag} from "lucide-react";
+import {ChevronRight, Minus, Plus, ShoppingBag, StarIcon} from "lucide-react";
 import {getProductsByCategory, getFeaturedProducts} from "@/data/products";
 import {formatCurrency} from "@/lib/utils";
 import {useCart} from "@/context/CartContext";
@@ -51,8 +51,6 @@ const ProductPage = () => {
               let featuredProducts = await productService.getAllFeaturedProducts();
               featuredProducts = featuredProducts.data
 
-              console.log(featuredProducts)
-
               featuredProducts = featuredProducts.filter(
                   p => p.id !== foundProduct.id
               );
@@ -80,11 +78,11 @@ const ProductPage = () => {
     setQuantity(prev => (prev > 1 ? prev - 1 : 1));
   };
 
-  // const handleAddToCart = () => {
-  //   if (product && selectedSize && selectedColor) {
-  //     addToCart(product);
-  //   }
-  // };
+  const handleAddToCart = () => {
+    if (product && selectedColor) {
+      addToCart(product, quantity, selectedColor);
+    }
+  };
 
   if (!product) {
     return (
@@ -175,7 +173,7 @@ const ProductPage = () => {
 
                 {/* Color Selection */}
                 <div>
-                  <h3 className="font-medium mb-2">Color</h3>
+                  <h3 className="font-medium mb-2">Màu sắc</h3>
                   <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="flex gap-3">
                     {product.colors.map((color) => (
                         <div key={color} className="flex flex-col items-center gap-1">
@@ -201,7 +199,7 @@ const ProductPage = () => {
 
                 {/* Quantity */}
                 <div>
-                  <h3 className="font-medium mb-2">Quantity</h3>
+                  <h3 className="font-medium mb-2">Số lượng</h3>
                   <div className="flex items-center space-x-2">
                     <Button
                         variant="outline"
@@ -221,9 +219,9 @@ const ProductPage = () => {
                 {/* Add to Cart */}
                 <Button
                     className="w-full mt-6" size="lg"
-                    // onClick={handleAddToCart}
+                    onClick={handleAddToCart}
                 >
-                  <ShoppingBag className="mr-2 h-4 w-4"/> Add to Cart
+                  <ShoppingBag className="mr-2 h-4 w-4"/> Thêm vào giỏ hàng
                 </Button>
               </div>
 
@@ -291,7 +289,7 @@ const ProductPage = () => {
                           //     star <= rating ? "text-yellow-400" : "text-gray-300"
                           // } hover:text-yellow-500`}
                       >
-                        ★
+                        <StarIcon className="h-4 w-4"/>
                       </button>
                   ))}
                 </div>
