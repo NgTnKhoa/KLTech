@@ -4,13 +4,14 @@ import lombok.Data;
 
 @Data
 public class ProductRequest {
-    private Long id;
     private String name;
     private String slug;
     private String description;
     private String thumbnail;
-    private String price;
-    private String discount;
+    private double price;
+    private double discount;
     private String status;
-    private Long categoryId;
+    private String[] colors;
+    private boolean featured;
+    private String categoryId;
 }

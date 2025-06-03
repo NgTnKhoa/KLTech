@@ -1,14 +1,20 @@
+server:
+  port: 8081
 spring:
+  application:
+    name: product-service
   datasource:
-    name: 'product-service-app'
+    name: product-service
     master:
-      url: jdbc:mysql://master_db:3306/kltech
+#      url: jdbc:mysql://master_db:3306/kltech
+      url: jdbc:mysql://localhost:3306/kltech?useSSL=false&autoReconnect=true
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
 
     slave:
-      url: jdbc:mysql://slave_db:3306/kltech
+#      url: jdbc:mysql://slave_db:3306/kltech
+      url: jdbc:mysql://localhost:3307/kltech?useSSL=false&autoReconnect=true
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
