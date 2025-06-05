@@ -1,28 +1,8 @@
-import * as React from "react"
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react"
+import { Bot, SquareTerminal, User } from "lucide-react";
+import * as React from "react";
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarRail,
-} from "@/components/ui/sidebar"
+import { NavMain } from "@/components/nav-main";
+import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
 
 // This is sample data.
 const data = {
@@ -53,7 +33,7 @@ const data = {
       title: "Product",
       url: "#",
       icon: SquareTerminal,
-      isActive: true,
+      // isActive: true,
       items: [
         {
           title: "Create",
@@ -69,6 +49,21 @@ const data = {
       title: "Category",
       url: "#",
       icon: Bot,
+      items: [
+        {
+          title: "Create",
+          url: "#",
+        },
+        {
+          title: "Update",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "User",
+      url: "#",
+      icon: User,
       items: [
         {
           title: "Create",
@@ -98,13 +93,21 @@ const data = {
   //     icon: Map,
   //   },
   // ],
-}
+};
 
 export function AppSidebar({
-                             onSectionChange,
-                             ...props
-                           }: React.ComponentProps<typeof Sidebar> & {
-  onSectionChange: (section: "product" | "category") => void;
+  onSectionChange,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & {
+  onSectionChange: (
+    section:
+      | "product"
+      | "category"
+      | "user"
+      | "user-create"
+      | "product-create"
+      | "category-create"
+  ) => void;
 }) {
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -120,5 +123,5 @@ export function AppSidebar({
       {/*</SidebarFooter>*/}
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
