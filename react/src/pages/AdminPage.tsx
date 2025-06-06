@@ -2,15 +2,16 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { CategoryTable } from "@/components/category-table.tsx";
 import { ProductTable } from "@/components/product-table.tsx";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { UserTable } from "@/components/user-table";
 import { Category } from "@/models/category.model.ts";
 import { Product } from "@/models/product.model.ts";
 import { User } from "@/models/user.model";
+import CreateUserPage from "@/pages//CreateUserPage";
 import CreateCategoryPage from "@/pages/CreateCategoryPage.tsx";
 import CreateProductPage from "@/pages/CreateProductPage.tsx";
 import { categoryService } from "@/services/category.service.ts";
 import { productService } from "@/services/product.service.ts";
 import { useEffect, useState } from "react";
-import { UserTable } from "@/components/user-table";
 
 const AdminPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -52,9 +53,9 @@ const AdminPage = () => {
           {activeSection === "product" && <ProductTable data={products} />}
           {activeSection === "category" && <CategoryTable data={categories} />}
           {activeSection === "user" && <UserTable data={users} />}
+          {activeSection === "user-create" && <CreateUserPage />}
           {activeSection === "product-create" && <CreateProductPage />}
           {activeSection === "category-create" && <CreateCategoryPage />}
-          {activeSection === "user-create" && <></>}
         </div>
       </SidebarInset>
     </SidebarProvider>

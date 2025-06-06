@@ -71,7 +71,9 @@ export function NavMain({
                           if (onSectionChange && subItem.title === "Update") {
                             onSectionChange(item.title.toLowerCase());
                           } else {
-                            if (item.title === "Product") {
+                            if (item.title === "User") {
+                              onSectionChange("user-create");
+                            } else if (item.title === "Product") {
                               onSectionChange("product-create");
                             } else {
                               onSectionChange("category-create");
