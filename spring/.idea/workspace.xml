@@ -5,31 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../react/src/components/ScrollToTop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/models/cart-item.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/models/order.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/models/payment.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/services/order.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/services/payment.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/bun.lockb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/layout/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/layout/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/product-columns.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/context/CartContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/context/CartContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CartPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CartPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CategoriesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CategoriesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/OffersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/OffersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/category.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/public/img/banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../react/public/img/banner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/public/img/login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../react/public/img/login.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/register-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +87,7 @@
     &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/sync-service-structures&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Web/KLTech/spring/api-gateway/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -188,9 +168,9 @@
     <list>
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
       <item itemvalue="Spring Boot.AuthenticationServiceApplication" />
-      <item itemvalue="Spring Boot.ProductServiceApplication" />
-      <item itemvalue="Spring Boot.OrderServiceApplication" />
       <item itemvalue="Spring Boot.NotificationServiceApplication" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+      <item itemvalue="Spring Boot.ProductServiceApplication" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -223,6 +203,8 @@
       <workItem from="1748711444925" duration="2132000" />
       <workItem from="1748748616692" duration="18945000" />
       <workItem from="1748843735391" duration="5409000" />
+      <workItem from="1749685860722" duration="2365000" />
+      <workItem from="1749978327843" duration="22000" />
     </task>
     <servers />
   </component>
