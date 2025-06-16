@@ -5,11 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../react/public/img/banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../react/public/img/banner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/public/img/login.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../react/public/img/login.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/register-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/models/review.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../react/src/services/review.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/products/ReviewCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/products/ReviewCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/models/auth.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/models/auth.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/ProductPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/models/responses/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/models/responses/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/controllers/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/mappers/ReviewMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ReviewRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/requests/ReviewRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ReviewResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/models/responses/ReviewResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +46,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="api-gateway" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -87,7 +112,7 @@
     &quot;Spring Boot.NotificationServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.OrderServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/CRUD-authentication-service&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Web/KLTech/spring/api-gateway/src/main/resources&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -125,8 +150,19 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="hiddenConfigurations">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <set>
+              <option value="NotificationServiceApplication" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
+  <component name="RunManager" selected="Spring Boot.AuthenticationServiceApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.kltech.api_gateway.ApiGatewayApplication" />
@@ -167,10 +203,10 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.ApiGatewayApplication" />
+      <item itemvalue="Spring Boot.ProductServiceApplication" />
       <item itemvalue="Spring Boot.AuthenticationServiceApplication" />
       <item itemvalue="Spring Boot.NotificationServiceApplication" />
       <item itemvalue="Spring Boot.OrderServiceApplication" />
-      <item itemvalue="Spring Boot.ProductServiceApplication" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -205,6 +241,9 @@
       <workItem from="1748843735391" duration="5409000" />
       <workItem from="1749685860722" duration="2365000" />
       <workItem from="1749978327843" duration="22000" />
+      <workItem from="1749989271833" duration="1535000" />
+      <workItem from="1750006246668" duration="2220000" />
+      <workItem from="1750070396949" duration="2220000" />
     </task>
     <servers />
   </component>

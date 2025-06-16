@@ -1,21 +1,22 @@
 import {useState, useEffect} from "react";
-import {useParams, Link} from "react-router-dom";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import {Button} from "@/components/ui/button";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Label} from "@/components/ui/label";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Alert, AlertDescription} from "@/components/ui/alert";
-import {Badge} from "@/components/ui/badge";
 import ProductGrid from "@/components/products/ProductGrid";
-import {ChevronRight, Minus, Plus, ShoppingBag, StarIcon} from "lucide-react";
-import {getProductsByCategory, getFeaturedProducts} from "@/data/products";
+import {ChevronRight, Minus, Plus, ShoppingBag, Star} from "lucide-react";
 import {formatCurrency} from "@/lib/utils";
 import {useCart} from "@/context/CartContext";
 import {productService} from "@/services/product.service.ts";
 import {Product} from "@/models/product.model.ts";
 import {categoryService} from "@/services/category.service.ts";
 import ReviewCard from "@/components/products/ReviewCard.tsx";
+import {reviewService} from "@/services/review.service.ts";
+import {Review, ReviewRequest} from "@/models/review.model.ts";
+import {toast} from "sonner";
 
 const ProductPage = () => {
   const {productId} = useParams<{ productId: string }>();
@@ -24,6 +25,10 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("");
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+  const [reviewValue, setReviewValue] = useState("");
+  const [rating, setRating] = useState(0);
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const navigate = useNavigate();
 
   const {addToCart} = useCart();
 
@@ -65,6 +70,12 @@ const ProductPage = () => {
         }
       };
 
+      const getReviews = async () => {
+        const response = await reviewService.getReviewsByProductId(productId);
+        setReviews(response.data);
+      }
+
+      getReviews()
       getProduct();
     }
   }, [productId]);
@@ -83,6 +94,33 @@ const ProductPage = () => {
       addToCart(product, quantity, selectedColor);
     }
   };
+
+  const postReviewHandler = async () => {
+    const username = localStorage.getItem('username');
+    if (username === null) {
+      navigate('/login');
+      toast.info("Bạn cần đăng nhập để viết đánh giá")
+    } else if (rating === 0) {
+      toast.info("Bạn cần vote số sao cho sản phẩm")
+    } else if (reviewValue.trim().length === 0) {
+      toast.info("Bạn cần để lại nhận xét sản phẩm")
+    } else {
+      const review: ReviewRequest = {
+        rating: rating,
+        content: reviewValue,
+        author: username,
+        productId: productId,
+      }
+
+      const newReview: Review = (await reviewService.createReview(review)).data;
+
+      setReviews((prev) => [newReview, ...prev]);
+      toast.success("Đăng đánh giá sản phẩm thành công");
+
+      setRating(0);
+      setReviewValue("");
+    }
+  }
 
   if (!product) {
     return (
@@ -112,9 +150,7 @@ const ProductPage = () => {
             <span className="font-medium">{product.name}</span>
           </div>
 
-          {/* Product Details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Product Images */}
             <div>
               <div className="aspect-square rounded-lg overflow-hidden bg-secondary mb-4">
                 <img
@@ -171,7 +207,6 @@ const ProductPage = () => {
 
                 <p className="text-muted-foreground">{product.description}</p>
 
-                {/* Color Selection */}
                 <div>
                   <h3 className="font-medium mb-2">Màu sắc</h3>
                   <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="flex gap-3">
@@ -197,7 +232,6 @@ const ProductPage = () => {
                   </RadioGroup>
                 </div>
 
-                {/* Quantity */}
                 <div>
                   <h3 className="font-medium mb-2">Số lượng</h3>
                   <div className="flex items-center space-x-2">
@@ -216,7 +250,6 @@ const ProductPage = () => {
                   </div>
                 </div>
 
-                {/* Add to Cart */}
                 <Button
                     className="w-full mt-6" size="lg"
                     onClick={handleAddToCart}
@@ -225,7 +258,6 @@ const ProductPage = () => {
                 </Button>
               </div>
 
-              {/* Product Details Tabs */}
               <Tabs defaultValue="details" className="mt-8">
                 <TabsList className="grid w-full grid-cols-3">
                   <TabsTrigger value="details">Mô tả</TabsTrigger>
@@ -272,31 +304,29 @@ const ProductPage = () => {
           <div className="mt-16">
             <h2 className="text-2xl font-bold mb-8">Đánh giá sản phẩm</h2>
             <div className="space-y-6">
-              Danh sách đánh giá
-              {/*{reviews.map((review) => (*/}
-              {/*    <ReviewCard key={review.id} review={review} />*/}
-              {/*))}*/}
-
-              {/* Gửi đánh giá mới */}
               <div className="border rounded-xl p-4 shadow-sm">
                 <div className="flex items-center space-x-1 mt-1 mb-3">
                   {[1, 2, 3, 4, 5].map((star) => (
                       <button
                           key={star}
                           type="button"
-                          // onClick={() => setRating(star)}
-                          // className={`text-xl ${
-                          //     star <= rating ? "text-yellow-400" : "text-gray-300"
-                          // } hover:text-yellow-500`}
+                          onClick={() => setRating(star)}
+                          className={`text-xl ${
+                              star <= rating ? "text-yellow-400" : "text-gray-400"
+                          } hover:text-yellow-500`}
                       >
-                        <StarIcon className="h-4 w-4"/>
+                        <Star
+                            className="h-5 w-5"
+                            fill={star <= rating ? "currentColor" : "none"}
+                            stroke="currentColor"
+                        />
                       </button>
                   ))}
                 </div>
 
                 <textarea
-                    // value={newComment}
-                    // onChange={(e) => setNewComment(e.target.value)}
+                    value={reviewValue}
+                    onChange={(e) => setReviewValue(e.target.value)}
                     className="w-full resize-none rounded-md border p-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary"
                     rows={3}
                     placeholder="Viết đánh giá của bạn..."
@@ -304,13 +334,30 @@ const ProductPage = () => {
 
                 <div className="flex justify-end mt-2">
                   <button
-                      // onClick={handleSubmit}
+                      onClick={postReviewHandler}
                       className="bg-primary text-white text-sm px-4 py-2 rounded-md hover:bg-primary/90"
                   >
                     Gửi đánh giá
                   </button>
                 </div>
               </div>
+
+              {reviews.map((review) => (
+                  <ReviewCard
+                      key={review.id}
+                      product={product}
+                      author={localStorage.getItem('username')}
+                      review={review}
+                      onDelete={() => {
+                        setReviews(prev => prev.filter(r => r.id !== review.id));
+                      }}
+                      onEdit={(updatedReview) =>
+                          setReviews(prev =>
+                              prev.map(r => r.id === updatedReview.id ? updatedReview : r)
+                          )
+                      }
+                  />
+              ))}
             </div>
           </div>
 

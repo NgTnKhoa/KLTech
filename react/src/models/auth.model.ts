@@ -13,6 +13,9 @@ export interface LoginRequest {
 }
 
 export interface AuthResponse {
+  message?: string;
   accessToken: string;
   refreshToken: string;
+  id: string;
+  username: string;
 }

@@ -13,6 +13,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 public interface ReviewMapper {
 
     @Mapping(source = "product.id", target = "productId")
+    @Mapping(source = "entryDate", target = "createdAt")
     ReviewResponse toReviewResponse(Review review);
 
     @Mapping(source = "productId", target = "product.id")

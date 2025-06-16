@@ -19,4 +19,6 @@ public class AuthenticationResponse {
   private String refreshToken;
 
   private String id;
+
+  private String username;
 }

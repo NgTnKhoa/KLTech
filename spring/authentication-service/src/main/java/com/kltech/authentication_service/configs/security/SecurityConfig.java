@@ -1,5 +1,6 @@
 package com.kltech.authentication_service.configs.security;
 
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +37,18 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/auth/**").permitAll()
                 .anyRequest()
                 .authenticated()
+        )
+        .exceptionHandling(ex -> ex
+            .authenticationEntryPoint((request, response, authException) -> {
+              response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+              response.setContentType("application/json");
+              response.getWriter().write("{\"message\": \"Invalid username or password\"}");
+            })
+            .accessDeniedHandler((request, response, accessDeniedException) -> {
+              response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+              response.setContentType("application/json");
+              response.getWriter().write("{\"message\": \"Access Denied\"}");
+            })
         )
         .csrf(AbstractHttpConfigurer::disable)
         .sessionManagement(sessionManagement ->

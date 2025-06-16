@@ -54,6 +54,7 @@ public class AuthenticationService implements IAuthenticationService {
         .accessToken(jwtToken)
         .refreshToken(refreshToken)
         .id(savedUser.getId())
+        .username(user.getUsername())
         .build();
   }
 
@@ -78,6 +79,7 @@ public class AuthenticationService implements IAuthenticationService {
         .accessToken(jwtToken)
         .refreshToken(refreshToken)
         .id(user.getId())
+        .username(user.getUsername())
         .build();
   }
 

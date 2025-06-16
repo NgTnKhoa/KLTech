@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  product-service-app:
-    container_name: product-service-app
+  gateway-service-app:
+    container_name: gateway-service-app
     ports:
-      - "8081:8081"
+      - "80:80"
     build: 
       context: .
       dockerfile: Dockerfile
@@ -14,4 +14,3 @@ services:
 networks:
   kltech-network:
     external: true
-    

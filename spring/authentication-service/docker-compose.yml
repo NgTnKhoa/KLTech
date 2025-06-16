@@ -1,51 +1,17 @@
 version: '3.9'
 
 services:
-  authentication-service-db:
-    image: mysql:8.0
-    container_name: authentication-service-db
-    restart: always
-    volumes:
-      - ./docker/my.cnf:/etc/mysql/conf.d/my.cnf
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kltech
-    networks:
-      - kltech-network
-    command: 
-      --server-id=2
-    entrypoint:
-      - /bin/bash
-      - -c
-      - |
-        docker-entrypoint.sh mysqld & sleep 10;
-        mysql -uroot -proot <<EOSQL
-        CHANGE REPLICATION SOURCE TO
-        SOURCE_HOST='master_db',
-        SOURCE_USER='replica',
-        SOURCE_PASSWORD='root',
-        SOURCE_LOG_FILE='mysql-bin.000003', -- Dựa vào SHOW MASTER STATUS trên Master
-        SOURCE_LOG_POS=684; -- Dựa vào SHOW MASTER STATUS trên Master
-        EOSQL
-        wait
-
   authentication-service-app:
     container_name: authentication-service-app
     ports:
-      - 8082:8080
+      - 8080:8080
     build: 
       context: .
       dockerfile: Dockerfile
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://authentication-service-db:3306/kltech?createDatabaseIfNotExist=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
-    depends_on:
-      - authentication-service-db
     networks:
       - kltech-network
 
 networks:
   kltech-network:
     external: true
-
+    

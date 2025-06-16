@@ -204,14 +204,18 @@ const Header = () => {
             {isLogin ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="icon" className="relative">
-                          <User className="h-5 w-5"/>
+                        <Button variant="ghost" size="icon" className="w-100 gap-1">
+                            <User className="h-5 w-5"/>
+                            <p>{localStorage.getItem("username")}</p>
                         </Button>
                       </DropdownMenuTrigger>
 
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={() => {
-                          localStorage.clear();
+                          localStorage.removeItem("accessToken");
+                          localStorage.removeItem("refreshToken");
+                          localStorage.removeItem("id");
+                          localStorage.removeItem("username");
                           navigate("/login");
                         }}>
                           Logout

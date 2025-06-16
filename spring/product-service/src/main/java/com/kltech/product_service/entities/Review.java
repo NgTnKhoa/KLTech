@@ -24,6 +24,9 @@ public class Review extends Base {
   @Column(name = "content")
   private String content;
 
+  @Column(name = "author")
+  private String author;
+
   @ManyToOne
   @JoinColumn(name = "product_id")
   private Product product;
