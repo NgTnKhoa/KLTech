@@ -28,6 +28,7 @@ interface ProductEditDialogProps {
 
 export function ProductEditDialog({open, onClose, product, products, setProducts}: ProductEditDialogProps) {
   const [formData, setFormData] = useState<Product>(null)
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File>(null);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -60,20 +61,27 @@ export function ProductEditDialog({open, onClose, product, products, setProducts
     setFormData({...formData, [e.target.name]: e.target.value})
   }
 
-  const handleSubmit = async () => {
-    if (!formData) return
+  const handleSubmit = async (type: string) => {
+    if (type === "update") {
+      if (!formData) return
 
-    const newThumbnail = selectedFile ? await fileService.uploadFile(selectedFile) : "";
+      const newThumbnail = selectedFile ? await fileService.uploadFile(selectedFile) : "";
 
-    if (newThumbnail !== "") {
-      formData.thumbnail = newThumbnail;
+      if (newThumbnail !== "") {
+        formData.thumbnail = newThumbnail;
+      }
+
+      await productService.updateProduct(formData.id, formData)
+      setProducts(products.map(p => p.id === formData.id ? formData : p))
+      onClose();
+
+      toast.info("Cập nhật sản phẩm thành công")
+    } else {
+      await productService.deleteProduct(product.id);
+      setProducts(products.filter(p => p.id !== product.id))
+      onClose();
+      toast.info("Xóa sản phẩm thành công")
     }
-
-    await productService.updateProduct(formData.id, formData)
-    setProducts(products.map(p => p.id === formData.id ? formData : p))
-    onClose();
-
-    toast.info("Cập nhật sản phẩm thành công")
   }
 
   if (!formData) return null
@@ -208,8 +216,26 @@ export function ProductEditDialog({open, onClose, product, products, setProducts
           </div>
 
           <DialogFooter>
-            <Button onClick={handleSubmit}>Lưu thay đổi</Button>
+            <Button onClick={() => setConfirmOpen(true)} className="bg-red-500">Xóa</Button>
+            <Button onClick={() => handleSubmit("update")}>Lưu thay đổi</Button>
           </DialogFooter>
+
+          <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Bạn có chắc chắn muốn xóa sản phẩm này?</DialogTitle>
+              </DialogHeader>
+              <DialogFooter>
+                <Button variant="ghost" onClick={() => setConfirmOpen(false)}>Hủy</Button>
+                <Button
+                    className="bg-red-600"
+                    onClick={() => handleSubmit("delete")}
+                >
+                  Xóa
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </DialogContent>
       </Dialog>
   )

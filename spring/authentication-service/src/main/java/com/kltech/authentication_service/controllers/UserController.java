@@ -27,9 +27,8 @@ public class  UserController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserRequest userRequest) {
-    IUserService.update(id, userRequest);
-    return ResponseEntity.noContent().build();
+  public ResponseEntity<UserResponse> update(@PathVariable String id, @RequestBody UserRequest userRequest) {
+    return ResponseEntity.ok(IUserService.update(id, userRequest));
   }
 
   @DeleteMapping("/{id}")

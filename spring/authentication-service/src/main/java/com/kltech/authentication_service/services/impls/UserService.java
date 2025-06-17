@@ -25,7 +25,7 @@ public class UserService implements IUserService {
   }
 
   @Override
-  public void update(String id, UserRequest userRequest) {
+  public UserResponse update(String id, UserRequest userRequest) {
     User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
 
     if (userRequest.getRole() != null) {
@@ -34,7 +34,7 @@ public class UserService implements IUserService {
 
     userMapper.toUserEntity(userRequest, user);
 
-    userRepository.save(user);
+    return userMapper.toUserResponse(userRepository.save(user));
   }
 
   @Override

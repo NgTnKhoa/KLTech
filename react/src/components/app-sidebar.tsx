@@ -66,10 +66,6 @@ const data = {
       icon: User,
       items: [
         {
-          title: "Create",
-          url: "#",
-        },
-        {
           title: "Update",
           url: "#",
         },
@@ -101,12 +97,11 @@ export function AppSidebar({
 }: React.ComponentProps<typeof Sidebar> & {
   onSectionChange: (
     section:
+      | "product-create"
       | "product"
+      | "category-create"
       | "category"
       | "user"
-      | "user-create"
-      | "product-create"
-      | "category-create"
   ) => void;
 }) {
   return (

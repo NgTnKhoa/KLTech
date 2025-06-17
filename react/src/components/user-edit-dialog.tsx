@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label.tsx"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select.tsx"
-import { User } from "@/models/user.model.ts"
-// import { userService } from "@/services/user.service.ts"
-import { useState } from "react"
+import { User } from "@/models/user.model"
+import {useEffect, useState} from "react"
 import { toast } from "sonner"
+import {userService} from "@/services/user.service.ts";
 
 interface UserEditDialogProps {
   open: boolean
@@ -17,36 +15,33 @@ interface UserEditDialogProps {
 }
 
 export function UserEditDialog({open, onClose, user, users, setUsers}: UserEditDialogProps) {
-  const [formData, setFormData] = useState<User | null>(null)
-  const [previewUrl, setPreviewUrl] = useState<string | null>("")
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
-
-  // useEffect(() => {
-  //   if (user) {
-  //     setPreviewUrl('http://localhost:80/api/v1/files/' + user?.avatar)
-  //     setFormData(user)
-  //   }
-  // }, [user])
-
+  const [formData, setFormData] = useState<User>(null)
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!formData) return
     setFormData({...formData, [e.target.name]: e.target.value})
   }
 
-  const handleSubmit = async () => {
-    if (!formData) return
+  useEffect(() => {
+    if (user) {
+      setFormData(user)
+    }
+  }, [user])
 
-    // const newAvatar = selectedFile ? await fileService.uploadFile(selectedFile) : ""
-
-    // if (newAvatar !== "") {
-    //   formData.avatar = newAvatar
-    // }
-
-    // await userService.updateUser(formData.id, formData)
-    // setUsers(users.map(u => u.id === formData.id ? formData : u))
-    onClose()
-
-    toast.info("Cập nhật người dùng thành công")
+  const handleSubmit = async (type: string) => {
+    if (type === "update") {
+      if (!formData) return
+      const user: User = await userService.updateUser(formData.id, formData);
+      setUsers(users.map(u => u.id === formData.id ? user : u))
+      onClose();
+      toast.info("Cập nhật người dùng thành công")
+    } else {
+      await userService.deleteUser(user.id);
+      setUsers(users.filter(u => u.id !== user.id))
+      setConfirmOpen(false);
+      onClose();
+      toast.info("Xóa người dùng thành công")
+    }
   }
 
   if (!formData) return null
@@ -79,68 +74,29 @@ export function UserEditDialog({open, onClose, user, users, setUsers}: UserEditD
               type="email"
             />
           </div>
-
-          <div className="space-y-2">
-            <Label>Vai trò</Label>
-            <Select
-              value={formData.role}
-              onValueChange={(value) => setFormData((prev) => ({...prev, role: value}))}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Chọn vai trò" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="admin">Quản trị viên</SelectItem>
-                <SelectItem value="user">Người dùng</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label>Trạng thái</Label>
-            <Select
-              value={String(formData.active)}
-              onValueChange={(value) => setFormData((prev) => ({...prev, active: value === "true"}))}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Chọn trạng thái" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="true">Hoạt động</SelectItem>
-                <SelectItem value="false">Đã khóa</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-medium">Ảnh đại diện</label>
-            <Input
-              type="file"
-              accept="image/*"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (!file) return
-
-                setSelectedFile(file)
-                const url = URL.createObjectURL(file)
-                setPreviewUrl(url)
-              }}
-            />
-            {previewUrl && (
-              <div className="flex justify-center pt-2">
-                <img
-                  src={previewUrl}
-                  alt="Preview"
-                  className="w-32 h-32 object-cover rounded-full border"
-                />
-              </div>
-            )}
-          </div>
         </div>
 
         <DialogFooter>
-          <Button onClick={handleSubmit}>Lưu thay đổi</Button>
+          <Button onClick={() => setConfirmOpen(true)} className="bg-red-500">Xóa</Button>
+          <Button onClick={() => handleSubmit("update")}>Lưu thay đổi</Button>
         </DialogFooter>
+
+        <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Bạn có chắc chắn muốn xóa người dùng này?</DialogTitle>
+            </DialogHeader>
+            <DialogFooter>
+              <Button variant="ghost" onClick={() => setConfirmOpen(false)}>Hủy</Button>
+              <Button
+                  className="bg-red-600"
+                  onClick={() => handleSubmit("delete")}
+              >
+                Xóa
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </DialogContent>
     </Dialog>
   )

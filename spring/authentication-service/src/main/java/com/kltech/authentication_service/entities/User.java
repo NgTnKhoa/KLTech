@@ -21,6 +21,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -63,6 +65,7 @@ public class User extends Base implements UserDetails {
   private UserRoles role;
 
   @OneToMany(mappedBy = "user")
+  @Cascade(CascadeType.ALL)
   private List<Token> tokens;
 
   @Override

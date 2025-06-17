@@ -15,6 +15,7 @@ import HomePage from "./pages/HomePage";
 import NotFound from "./pages/NotFound";
 import OffersPage from "./pages/OffersPage";
 import ProductPage from "./pages/ProductPage";
+import Forbidden from "@/pages/Forbidden.tsx";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/offers" element={<OffersPage />} />
+            <Route path="/403" element={<Forbidden />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

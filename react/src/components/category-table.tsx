@@ -4,10 +4,9 @@ import {useState} from "react";
 import {categoryColumns} from "@/components/category-columns.tsx";
 import {CategoryEditDialog} from "@/components/category-edit-dialog.tsx";
 
-export function CategoryTable({ data }: { data: Category[] }) {
+export function CategoryTable({data, setData}: { data: Category[], setData?: (value: (((prevState: Category[]) => Category[]) | Category[])) => void }) {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
   const [open, setOpen] = useState(false)
-  const [categories, setCategories] = useState<Category[]>(data)
 
   const handleRowClick = (category: Category) => {
     setSelectedCategory(category)
@@ -18,15 +17,15 @@ export function CategoryTable({ data }: { data: Category[] }) {
       <>
         <DataTable
             columns={categoryColumns}
-            data={categories}
+            data={data}
             onRowClick={handleRowClick}
         />
         <CategoryEditDialog
             open={open}
             onClose={() => setOpen(false)}
             category={selectedCategory}
-            categories={categories}
-            setCategories={setCategories}
+            categories={data}
+            setCategories={setData}
         />
       </>
   );

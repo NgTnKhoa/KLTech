@@ -3,14 +3,18 @@ import {Button} from "@/components/ui/button"
 import {useState} from "react"
 import {productService} from "@/services/product.service"
 import {useNavigate} from "react-router-dom"
-import {CategoryRequest} from "@/models/category.model.ts";
+import {Category, CategoryRequest} from "@/models/category.model.ts";
 import {categoryService} from "@/services/category.service.ts";
 import {fileService} from "@/services/file.service.ts";
 import {toast} from "sonner";
 import {Label} from "@/components/ui/label.tsx";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
 
-export default function CreateCategoryPage() {
+interface CreateCategoryPageProps {
+  setData?: (value: (((prevState: Category[]) => Category[]) | Category[])) => void
+}
+
+export default function CreateCategoryPage({setData}: CreateCategoryPageProps) {
   const [previewUrl, setPreviewUrl] = useState<string>('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [formData, setFormData] = useState<CategoryRequest>({
@@ -43,7 +47,7 @@ export default function CreateCategoryPage() {
     try {
       formData.thumbnail = selectedFile ? await fileService.uploadFile(selectedFile) : "";
 
-      await categoryService.createCategory(formData)
+      const newCategory = (await categoryService.createCategory(formData)).data
       toast.info('Tạo danh mục thành công');
 
       setFormData({
@@ -55,6 +59,7 @@ export default function CreateCategoryPage() {
       });
       setPreviewUrl('');
       setSelectedFile(null);
+      setData(prev => [newCategory, ...prev]);
     } catch (error) {
       toast.error("Đã có lỗi xảy ra khi tạo danh mục.");
       console.error(error);

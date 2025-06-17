@@ -4,10 +4,9 @@ import { UserEditDialog } from "@/components/user-edit-dialog.tsx";
 import { User } from "@/models/user.model";
 import { useState } from "react";
 
-export function UserTable({data}: { data: User[]}) {
+export function UserTable({data, setData}: { data: User[], setData?: (value: (((prevState: User[]) => User[]) | User[])) => void }) {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [open, setOpen] = useState(false)
-  const [users, setUsers] = useState<User[]>(data);
 
   const handleRowClick = (user: User) => {
     setSelectedUser(user);
@@ -18,15 +17,15 @@ export function UserTable({data}: { data: User[]}) {
       <>
         <DataTable
             columns={userColumns}
-            data={users}
+            data={data}
             onRowClick={handleRowClick}
         />
         <UserEditDialog
             open={open}
             onClose={() => setOpen(false)}
             user={selectedUser}
-            users={users}
-            setUsers={setUsers}
+            users={data}
+            setUsers={setData}
         />
       </>
   );

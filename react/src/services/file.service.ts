@@ -1,4 +1,3 @@
-import {handleApiError} from "@/utils/exception-handler.ts";
 import {fetchApi} from "@/utils/fetch-api.ts";
 
 export const fileService = {
@@ -11,7 +10,7 @@ export const fileService = {
           formData,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
 };

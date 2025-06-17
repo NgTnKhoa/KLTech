@@ -10,7 +10,7 @@ public interface IUserService {
   List<UserResponse> findAll();
 
   @Transactional
-  void update(String id, UserRequest userRequest);
+  UserResponse update(String id, UserRequest userRequest);
 
   @Transactional
   void delete(String id);

@@ -4,10 +4,9 @@ import {useState} from "react";
 import {productColumns} from "@/components/product-columns.tsx";
 import {ProductEditDialog} from "@/components/product-edit-dialog.tsx";
 
-export function ProductTable({data}: { data: Product[]}) {
+export function ProductTable({data, setData}: { data: Product[], setData?: (value: (((prevState: Product[]) => Product[]) | Product[])) => void }) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [open, setOpen] = useState(false)
-  const [products, setProducts] = useState<Product[]>(data)
 
   const handleRowClick = (product: Product) => {
     setSelectedProduct(product)
@@ -18,15 +17,15 @@ export function ProductTable({data}: { data: Product[]}) {
       <>
         <DataTable
             columns={productColumns}
-            data={products}
+            data={data}
             onRowClick={handleRowClick}
         />
         <ProductEditDialog
             open={open}
             onClose={() => setOpen(false)}
             product={selectedProduct}
-            products={products}
-            setProducts={setProducts}
+            products={data}
+            setProducts={setData}
         />
       </>
   );

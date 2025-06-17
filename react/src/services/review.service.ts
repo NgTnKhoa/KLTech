@@ -1,6 +1,6 @@
 import {fetchApi} from "@/utils/fetch-api";
-import {handleApiError} from "@/utils/exception-handler";
 import {Review, ReviewRequest} from "@/models/review.model.ts";
+import {ApiListResponse, ApiResponse} from "@/models/response.model.ts";
 
 export const reviewService = {
   getReviewsByProductId: async (
@@ -9,36 +9,36 @@ export const reviewService = {
       // offset = 0
   ) => {
     try {
-      return await fetchApi.get<Review>(
+      return await fetchApi.get<ApiListResponse<Review>>(
           `/products/${productId}/reviews`,
           // {
           //   params: {limit, offset},
           // },
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
 
   createReview: async (review: ReviewRequest) => {
     try {
-      return await fetchApi.post<Review>(
+      return await fetchApi.post<ApiResponse<Review>>(
           '/reviews',
           review
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
 
   updateReview: async (id: string, review: ReviewRequest) => {
     try {
-      return await fetchApi.put<Review>(
+      return await fetchApi.put<ApiResponse<Review>>(
           `/reviews/${id}`,
           review
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
 
@@ -46,7 +46,7 @@ export const reviewService = {
     try {
       return await fetchApi.delete(`/reviews/${id}`);
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   }
 };

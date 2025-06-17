@@ -1,16 +1,16 @@
 import {fetchApi} from "@/utils/fetch-api";
-import {handleApiError} from "@/utils/exception-handler";
 import {Order, OrderRequest} from "@/models/order.model.ts";
+import {ApiResponse} from "@/models/response.model.ts";
 
 export const orderService = {
   createOrder: async (order: OrderRequest) => {
     try {
-      return await fetchApi.post<Order>(
+      return await fetchApi.post<ApiResponse<Order>>(
           `/orders`,
           order,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   }
 };

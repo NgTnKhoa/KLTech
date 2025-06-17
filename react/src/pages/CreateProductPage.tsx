@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import {useEffect, useState} from "react"
-import {ProductRequest} from "@/models/product.model.ts";
+import {Product, ProductRequest} from "@/models/product.model.ts";
 import {toast} from "sonner"
 import {Category} from "@/models/category.model.ts";
 import {categoryService} from "@/services/category.service.ts";
@@ -17,7 +17,11 @@ import {fileService} from "@/services/file.service.ts";
 import {productService} from "@/services/product.service.ts";
 import {Label} from "@/components/ui/label.tsx";
 
-export default function CreateProductPage() {
+interface CreateProductPageProps {
+  setData?: (value: (((prevState: Product[]) => Product[]) | Product[])) => void
+}
+
+export default function CreateProductPage({setData}: CreateProductPageProps) {
   const [categories, setCategories] = useState<Category[]>([])
   const availableColors: Record<string, string> = {
     red: "Đỏ",
@@ -79,7 +83,7 @@ export default function CreateProductPage() {
     try {
       formData.thumbnail = selectedFile ? await fileService.uploadFile(selectedFile) : "";
 
-      await productService.createProduct(formData)
+      const newProduct = (await productService.createProduct(formData)).data
       toast.info('Tạo sản phẩm thành công');
 
       setFormData({
@@ -95,6 +99,7 @@ export default function CreateProductPage() {
         colors: [],
       });
       setPreviewUrl('');
+      setData(prev => [newProduct, ...prev]);
       setSelectedFile(null);
     } catch (error) {
       toast.error("Đã có lỗi xảy ra khi tạo sản phẩm.");

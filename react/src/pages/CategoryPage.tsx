@@ -7,12 +7,11 @@ import {Alert, AlertDescription} from "@/components/ui/alert";
 import {Button} from "@/components/ui/button";
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
 import {SlidersHorizontal} from "lucide-react";
-import {FilterOptions} from "@/types";
 import {filterProducts, sortProducts} from "@/lib/utils";
 import {Product} from "@/models/product.model.ts";
 import {Category} from "@/models/category.model.ts";
-import {productService} from "@/services/product.service.ts";
 import {categoryService} from "@/services/category.service.ts";
+import {FilterOptions} from "@/models/filter.model.ts";
 
 const CategoryPage = () => {
   const {categoryId} = useParams<{ categoryId: string }>();

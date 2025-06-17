@@ -63,7 +63,7 @@ export function DataTable<TData, TValue>({
                   onClick={() => onRowClick?.(row.original)}
                   className="cursor-pointer hover:bg-muted"
                 >
-                  {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells().map((cell  ) => (
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,

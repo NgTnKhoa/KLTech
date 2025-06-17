@@ -21,6 +21,7 @@ export function CategoryEditDialog({open, onClose, category, categories, setCate
   const [formData, setFormData] = useState<Category | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   useEffect(() => {
     if (category) {
@@ -34,20 +35,28 @@ export function CategoryEditDialog({open, onClose, category, categories, setCate
     setFormData({...formData, [e.target.name]: e.target.value})
   }
 
-  const handleSubmit = async () => {
-    if (!formData) return
+  const handleSubmit = async (type: string) => {
+    if (type === "update") {
+      if (!formData) return
 
-    const newThumbnail = selectedFile ? await fileService.uploadFile(selectedFile) : "";
+      const newThumbnail = selectedFile ? await fileService.uploadFile(selectedFile) : "";
 
-    if (newThumbnail !== "") {
-      formData.thumbnail = newThumbnail;
+      if (newThumbnail !== "") {
+        formData.thumbnail = newThumbnail;
+      }
+
+      await categoryService.updateCategory(formData.id, formData)
+      setCategories(categories.map(p => p.id === formData.id ? formData : p))
+      onClose();
+
+      toast.info("Cập nhật danh mục thành công")
+    } else {
+      await categoryService.deleteCategory(category.id);
+      setCategories(categories.filter(c => c.id !== category.id))
+      setConfirmOpen(false);
+      onClose();
+      toast.info("Xóa danh mục thành công")
     }
-
-    await categoryService.updateCategory(formData.id, formData)
-    setCategories(categories.map(p => p.id === formData.id ? formData : p))
-    onClose();
-
-    toast.info("Cập nhật sản phẩm thành công")
   }
 
   if (!formData) return null
@@ -133,8 +142,26 @@ export function CategoryEditDialog({open, onClose, category, categories, setCate
           </div>
 
           <DialogFooter>
-            <Button onClick={handleSubmit}>Lưu thay đổi</Button>
+            <Button onClick={() => setConfirmOpen(true)} className="bg-red-500">Xóa</Button>
+            <Button onClick={() => handleSubmit("update")}>Lưu thay đổi</Button>
           </DialogFooter>
+
+          <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Bạn có chắc chắn muốn xóa danh mục này?</DialogTitle>
+              </DialogHeader>
+              <DialogFooter>
+                <Button variant="ghost" onClick={() => setConfirmOpen(false)}>Hủy</Button>
+                <Button
+                    className="bg-red-600"
+                    onClick={() => handleSubmit("delete")}
+                >
+                  Xóa
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </DialogContent>
       </Dialog>
   )

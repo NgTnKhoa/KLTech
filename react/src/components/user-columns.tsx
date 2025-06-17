@@ -4,11 +4,6 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 
 export const userColumns: ColumnDef<User>[] = [
-  // {
-  //   accessorKey: "index",
-  //   header: "Index",
-  //   cell: ({ row }) => <p>{row.index + 1}</p>,
-  // },
   {
     accessorKey: "name",
     header: ({ column }) => (
@@ -46,7 +41,7 @@ export const userColumns: ColumnDef<User>[] = [
     accessorKey: "phoneNumber",
     header: "Phone Number",
     cell: ({ row }) => {
-      const phone = row.getValue("phoneNumber");
+      const phone: string = row.getValue("phoneNumber");
       return <div>{phone}</div>;
     },
   },

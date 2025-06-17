@@ -55,6 +55,7 @@ public class AuthenticationService implements IAuthenticationService {
         .refreshToken(refreshToken)
         .id(savedUser.getId())
         .username(user.getUsername())
+        .role(UserRoles.valueOf(registerRequest.getRole()))
         .build();
   }
 
@@ -80,6 +81,7 @@ public class AuthenticationService implements IAuthenticationService {
         .refreshToken(refreshToken)
         .id(user.getId())
         .username(user.getUsername())
+        .role(user.getRole())
         .build();
   }
 

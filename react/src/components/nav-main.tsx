@@ -34,12 +34,11 @@ export function NavMain({
   }[];
   onSectionChange?: (
     section:
-      | "product"
-      | "category"
       | "product-create"
+      | "product"
       | "category-create"
+      | "category"
       | "user"
-      | "user-create"
   ) => void;
 }) {
   return (
@@ -69,10 +68,10 @@ export function NavMain({
                         asChild
                         onClick={() => {
                           if (onSectionChange && subItem.title === "Update") {
-                            onSectionChange(item.title.toLowerCase());
+                            onSectionChange(item.title.toLowerCase() as "product-create" | "product" | "category-create" | "category" | "user");
                           } else {
                             if (item.title === "User") {
-                              onSectionChange("user-create");
+                              onSectionChange("user");
                             } else if (item.title === "Product") {
                               onSectionChange("product-create");
                             } else {

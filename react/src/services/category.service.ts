@@ -1,6 +1,7 @@
 import {fetchApi} from "@/utils/fetch-api";
-import {handleApiError} from "@/utils/exception-handler";
 import {Category, CategoryRequest} from "@/models/category.model.ts";
+import {ApiListResponse, ApiResponse} from "@/models/response.model.ts";
+import {Product} from "@/models/product.model.ts";
 
 export const categoryService = {
   getCategories: async (
@@ -8,61 +9,68 @@ export const categoryService = {
       // offset = 0
   ) => {
     try {
-      return await fetchApi.get<Category>(
+      return await fetchApi.get<ApiListResponse<Category>>(
           `/categories`,
           // {
           //   params: {limit, offset},
           // },
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
   getCategoryById: async (categoryId: string) => {
     try {
-      return await fetchApi.get<Category>(
+      return await fetchApi.get<ApiResponse<Category>>(
           `/categories/${categoryId}`,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
   updateCategory: async (categoryId: string, data: Category) => {
     try {
-      return await fetchApi.put<Category>(
+      return await fetchApi.put<ApiResponse<Category>>(
           `/categories/${categoryId}`,
           data,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
   getAllProducts: async (categoryId: string) => {
     try {
-      return await fetchApi.get<Category>(
+      return await fetchApi.get<ApiListResponse<Product>>(
           `/categories/${categoryId}/products`,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
   getAllColors: async (categoryId: string) => {
     try {
-      return await fetchApi.get<string[]>(
+      return await fetchApi.get<ApiListResponse<string>>(
           `/categories/${categoryId}/colors`,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
     }
   },
   createCategory: async (category: CategoryRequest) => {
     try {
-      return await fetchApi.post<Category>(
+      return await fetchApi.post<ApiResponse<Category>>(
           `/categories`,
           category,
       );
     } catch (error) {
-      return handleApiError(error, null);
+      console.error(error);
+    }
+  },
+  deleteCategory: async (categoryId: string) => {
+    try {
+      return await fetchApi.delete(`/categories/${categoryId}`);
+    } catch (error) {
+      console.error(error);
     }
   }
 };

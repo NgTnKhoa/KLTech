@@ -89,7 +89,7 @@ const HomePage = () => {
 
         {/* Sale Section */}
         <section className="container px-4 py-16">
-          <div className="bg-fashion-100 rounded-lg overflow-hidden">
+          <div className="bg-fashion-100 rounded-lg overflow-hidden shadow-xl">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <div className="inline-block px-3 py-1 bg-destructive text-destructive-foreground rounded-full text-xs font-medium mb-4">
@@ -105,7 +105,7 @@ const HomePage = () => {
               </div>
               <div className="aspect-[4/3] md:aspect-auto overflow-hidden">
                 <img
-                    src="https://images.unsplash.com/photo-1613945407943-59cd755fd69e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+                    src="/img/sales.jpg"
                     alt="Sale"
                     className="h-full w-full object-cover object-center"
                 />

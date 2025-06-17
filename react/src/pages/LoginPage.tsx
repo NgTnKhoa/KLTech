@@ -14,6 +14,7 @@ const LoginPage = () => {
       localStorage.setItem("refreshToken", response.refreshToken)
       localStorage.setItem("id", response.id)
       localStorage.setItem("username", response.username)
+      localStorage.setItem("role", response.role)
       navigate("/")
     }
   }
