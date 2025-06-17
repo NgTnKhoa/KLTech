@@ -1,5 +1,6 @@
 package com.kltech.authentication_service.configs.security;
 
+import com.kltech.authentication_service.enums.UserRoles;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +36,7 @@ public class SecurityConfig {
         .authorizeHttpRequests(auth ->
             auth
                 .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
         )

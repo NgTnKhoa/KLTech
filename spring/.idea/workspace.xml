@@ -5,50 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../react/public/img/error/403.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/public/img/error/404.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/public/img/sales.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/models/filter.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/models/response.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/pages/Forbidden.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../react/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/app-sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/app-sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/category-edit-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/category-edit-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/category-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/category-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/data-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/data-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/nav-main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/nav-main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/product-edit-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/product-edit-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/product-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/product-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/user-columns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/user-columns.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/user-edit-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/user-edit-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/components/user-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/user-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/models/auth.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/models/auth.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/AdminPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CategoryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CategoryPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CreateCategoryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CreateCategoryPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CreateProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/CreateProductPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/CreateUserPage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/pages/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/NotFound.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/category.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/file.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/file.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/order.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/payment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/payment.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/services/review.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/review.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react/src/utils/exception-handler.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/models/requests/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/models/requests/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/models/responses/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/models/responses/AuthenticationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,7 +227,7 @@
       <workItem from="1749989271833" duration="1535000" />
       <workItem from="1750006246668" duration="2220000" />
       <workItem from="1750070396949" duration="3882000" />
-      <workItem from="1750138715544" duration="6411000" />
+      <workItem from="1750138715544" duration="12471000" />
     </task>
     <servers />
   </component>

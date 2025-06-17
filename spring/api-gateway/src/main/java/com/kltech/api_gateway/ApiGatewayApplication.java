@@ -23,7 +23,7 @@ public class ApiGatewayApplication {
 //        .route("order-service", r -> r.path("/api/v1/orders/**", "/api/v1/payments/**")
 //            .uri("http://order-service-app:8082"))
 //        .build();
-        .route("auth-service", r -> r.path("/api/v1/auth/**")
+        .route("auth-service", r -> r.path("/api/v1/auth/**", "/api/v1/admin/**")
             .uri("http://localhost:8080"))
         .route("product-service", r -> r.path("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/files/**", "/api/v1/reviews/**")
             .uri("http://localhost:8081"))

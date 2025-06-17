@@ -8,7 +8,7 @@ export const userService = {
   ) => {
     try {
       return await fetchApi.get<User[]>(
-          `/auth/users`,
+          `/admin/users`,
           // {
           //   params: {limit, offset},
           // },
@@ -20,7 +20,7 @@ export const userService = {
   getUserById: async (userId: string) => {
     try {
       return await fetchApi.get<User>(
-          `/auth/users/${userId}`,
+          `/admin/users/${userId}`,
       );
     } catch (error) {
       console.error(error);
@@ -30,7 +30,7 @@ export const userService = {
   updateUser: async (userId: string, data: UserRequest) => {
     try {
       return await fetchApi.put<User>(
-          `/auth/users/${userId}`,
+          `/admin/users/${userId}`,
           data,
       );
     } catch (error) {
@@ -40,7 +40,7 @@ export const userService = {
 
   deleteUser: async (userId: string) => {
     try {
-      return await fetchApi.delete(`/auth/users/${userId}`);
+      return await fetchApi.delete(`/admin/users/${userId}`);
     } catch (error) {
       console.error(error);
     }
