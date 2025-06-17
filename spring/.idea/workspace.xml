@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efcf8e85-44c6-4473-bfaa-340d36dde323" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../react/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/login-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/components/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/components/register-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/pages/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/pages/RegisterPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react/src/utils/fetch-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../react/src/utils/fetch-api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/kltech/api_gateway/ApiGatewayApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/JwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/configs/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/services/impls/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/validator/PasswordConstraintValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/kltech/authentication_service/validator/PasswordConstraintValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/java/com/kltech/product_service/entities/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +235,7 @@
       <workItem from="1749989271833" duration="1535000" />
       <workItem from="1750006246668" duration="2220000" />
       <workItem from="1750070396949" duration="3882000" />
-      <workItem from="1750138715544" duration="12471000" />
+      <workItem from="1750138715544" duration="18624000" />
     </task>
     <servers />
   </component>

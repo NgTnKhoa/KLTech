@@ -35,6 +35,14 @@ public class AuthenticationService implements IAuthenticationService {
 
   @Override
   public AuthenticationResponse register(RegisterRequest registerRequest) {
+    if (userRepository.existsByEmail(registerRequest.getEmail())) {
+      throw new RuntimeException("Email đã tồn tại");
+    } else if (userRepository.existsByUsername(registerRequest.getUsername())) {
+      throw new RuntimeException("Username đã tồn tại");
+    } else if (userRepository.existsByPhoneNumber(registerRequest.getPhoneNumber())) {
+      throw new RuntimeException("Số điện thoại đã tồn tại");
+    }
+
     User user = User.builder()
         .name(registerRequest.getName())
         .email(registerRequest.getEmail())
@@ -69,7 +77,7 @@ public class AuthenticationService implements IAuthenticationService {
     );
 
     User user = userRepository.findByUsername(authenticationRequest.getUsername())
-        .orElseThrow();
+        .orElseThrow(() -> new RuntimeException("Sai username hoặc mật khẩu"));
     String jwtToken = jwtService.generateToken(user);
     String refreshToken = jwtService.generateRefreshToken(user);
 

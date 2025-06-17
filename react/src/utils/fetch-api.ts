@@ -35,11 +35,14 @@ async function fetchWithTimeout(
 
 export const fetchApi = {
   async get<T>(endpoint: string, customHeaders = {}): Promise<T> {
+    const token = localStorage.getItem("accessToken");
+
     const url = `${BASE_URL}${endpoint}`;
     const options: RequestOptions = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": token ? `Bearer ${token}` : "",
         ...customHeaders,
       },
     };
@@ -59,6 +62,7 @@ export const fetchApi = {
   },
 
   async post<T>(endpoint: string, data: any, customHeaders = {}): Promise<T> {
+    const token = localStorage.getItem("accessToken");
     const url = `${BASE_URL}${endpoint}`;
     const isFormData = data instanceof FormData;
 
@@ -66,6 +70,7 @@ export const fetchApi = {
         ? { ...customHeaders }
         : {
           "Content-Type": "application/json",
+          "Authorization": token ? `Bearer ${token}` : "",
           ...customHeaders,
         };
 
@@ -96,11 +101,13 @@ export const fetchApi = {
   },
 
   async put<T>(endpoint: string, data: any, customHeaders = {}): Promise<T> {
+    const token = localStorage.getItem("accessToken");
     const url = `${BASE_URL}${endpoint}`;
     const options: RequestOptions = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": token ? `Bearer ${token}` : "",
         ...customHeaders,
       },
       body: JSON.stringify(data),
@@ -121,11 +128,13 @@ export const fetchApi = {
   },
 
   async delete<T>(endpoint: string, customHeaders = {}): Promise<T> {
+    const token = localStorage.getItem("accessToken");
     const url = `${BASE_URL}${endpoint}`;
     const options: RequestOptions = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": token ? `Bearer ${token}` : "",
         ...customHeaders,
       },
     };

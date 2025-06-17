@@ -12,6 +12,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -37,5 +39,6 @@ public class Category extends Base {
   private boolean featured;
 
   @OneToMany(mappedBy = "category")
+  @Cascade(CascadeType.ALL)
   private List<Product> products;
 }

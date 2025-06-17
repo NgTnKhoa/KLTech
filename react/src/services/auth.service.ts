@@ -11,6 +11,7 @@ export const authService = {
       return await fetchApi.post<AuthResponse>("/auth/authenticate", data);
     } catch (error) {
       console.error(error);
+      return error;
     }
   },
 
@@ -19,6 +20,7 @@ export const authService = {
       return await fetchApi.post<AuthResponse>("/auth/register", data);
     } catch (error) {
       console.error(error);
+      return error;
     }
   },
 
@@ -27,6 +29,7 @@ export const authService = {
       return await fetchApi.post<boolean>(`/auth/validate-token?token=${accessToken}`, null);
     } catch (error) {
       console.error(error);
+      return error;
     }
   },
 };

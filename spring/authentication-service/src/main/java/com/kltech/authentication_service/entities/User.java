@@ -68,11 +68,6 @@ public class User extends Base implements UserDetails {
   @Cascade(CascadeType.ALL)
   private List<Token> tokens;
 
-//  @Override
-//  public Collection<? extends GrantedAuthority> getAuthorities() {
-//    return List.of(new SimpleGrantedAuthority(role.name()));
-//  }
-
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return List.of(new SimpleGrantedAuthority("ROLE_" + this.role.name()));

@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import {FilterOptions} from "@/types";
 import {Slider} from "@/components/ui/slider";
 import {Checkbox} from "@/components/ui/checkbox";
 import {Label} from "@/components/ui/label";
 import {Button} from "@/components/ui/button";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {FilterOptions} from "@/models/filter.model.ts";
 
 interface FiltersProps {
   onFilterChange: (filters: FilterOptions) => void;
@@ -12,7 +12,7 @@ interface FiltersProps {
 }
 
 const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
-  const [priceRange, setPriceRange] = useState<[number, number]>([9000000, 35000000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000000]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("newest");
 
@@ -32,7 +32,7 @@ const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
   };
 
   const resetFilters = () => {
-    setPriceRange([9000000, 35000000]);
+    setPriceRange([0, 100000000]);
     setSelectedColors([]);
     // setSortBy("newest");
     onFilterChange({});
@@ -58,9 +58,9 @@ const Filters = ({onFilterChange, availableColors}: FiltersProps) => {
           <h3 className="font-medium mb-3">Price Range</h3>
           <Slider
               value={priceRange}
-              min={9000000}
-              max={15000000}
-              step={100000}
+              min={0}
+              max={100000000}
+              step={1000000}
               onValueChange={(value) => setPriceRange(value as [number, number])}
               className="mb-2"
           />

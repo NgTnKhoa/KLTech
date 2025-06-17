@@ -12,6 +12,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -49,6 +51,7 @@ public class Product extends Base {
   private boolean featured;
 
   @OneToMany(mappedBy = "product")
+  @Cascade(CascadeType.ALL)
   private List<Review> reviews;
 
   @ManyToOne

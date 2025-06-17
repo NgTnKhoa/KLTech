@@ -12,14 +12,15 @@ type LoginFormData = z.infer<typeof loginSchema>;
 type LoginFormProps = {
   onSubmit?: (data: LoginFormData) => void,
   className?: string,
+  message?: string
 };
 
 const loginSchema = z.object({
-  username: z.string().min(6, "Username phải có ít nhất 6 kí tự"),
-  password: z.string().min(6, "Password phải có ít nhất 6 kí tự"),
+  username: z.string().min(3, "Username phải có ít nhất 3 kí tự"),
+  password: z.string().min(5, "Password phải có ít nhất 5 kí tự"),
 });
 
-export function LoginForm({className, onSubmit}: LoginFormProps) {
+export function LoginForm({className, onSubmit, message}: LoginFormProps) {
   const [formData, setFormData] = useState<LoginFormData>({
     username: "",
     password: "",
@@ -101,9 +102,9 @@ export function LoginForm({className, onSubmit}: LoginFormProps) {
                 {errors.password && (
                     <p className="text-xs text-red-500">{errors.password}</p>
                 )}
-                {/*{message && (*/}
-                {/*    <p className="text-xs text-red-500">{message}</p>*/}
-                {/*)}*/}
+                {message && (
+                    <p className="text-xs text-red-500">{message}</p>
+                )}
                 <Button type="submit" className="w-full">
                   Login
                 </Button>
