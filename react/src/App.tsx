@@ -1,50 +1,55 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
+import ScrollToTop from "@/components/ScrollToTop.tsx";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import AdminPage from "@/pages/AdminPage.tsx";
+import LoginPage from "@/pages/LoginPage.tsx";
+import RegisterPage from "@/pages/RegisterPage.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import CartPage from "./pages/CartPage";
+import CategoriesPage from "./pages/CategoriesPage";
+import CategoryPage from "./pages/CategoryPage";
+import HomePage from "./pages/HomePage";
+import NotFound from "./pages/NotFound";
+import OffersPage from "./pages/OffersPage";
+import ProductPage from "./pages/ProductPage";
+import Forbidden from "@/pages/Forbidden.tsx";
+import ForgotPasswordPage from "@/pages/ForgotPasswordPage.tsx";
+import VerifyOTPPage from "@/pages/VerifyOTPPage.tsx";
+import ChangePasswordPage from "@/pages/ChangePasswordPage.tsx";
 
-export default function Page() {
-  return (
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Building Your Application
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </header>
-          <div className="flex flex-1 flex-col gap-4 p-4">
-            <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-              <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50" />
-              <div className="aspect-video rounded-xl bg-muted/50" />
-            </div>
-            <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-          </div>
-        </SidebarInset>
-      </SidebarProvider>
-  )
-}
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <CartProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/verify-otp" element={<VerifyOTPPage />} />
+            <Route path="/change-password" element={<ChangePasswordPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/category/:categoryId" element={<CategoryPage />} />
+            <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/offers" element={<OffersPage />} />
+            <Route path="/403" element={<Forbidden />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </CartProvider>
+  </QueryClientProvider>
+);
+
+export default App;

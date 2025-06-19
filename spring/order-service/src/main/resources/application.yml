@@ -1,0 +1,26 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: order-service
+  datasource:
+    name: order-service
+    master:
+      #      url: jdbc:mysql://master_db:3306/kltech
+      url: jdbc:mysql://localhost:3306/kltech?useSSL=false&autoReconnect=true
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    slave:
+      #      url: jdbc:mysql://slave_db:3306/kltech
+      url: jdbc:mysql://localhost:3307/kltech?useSSL=false&autoReconnect=true
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect

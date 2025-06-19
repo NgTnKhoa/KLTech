@@ -1,0 +1,4 @@
+spring/product-service/docker-compose.yml
+spring/authentication-service/src/main/resources/application.yml
+spring/product-service/src/main/resources/application.properties
+spring/authentication-service/docker-compose.yml
