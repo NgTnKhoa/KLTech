@@ -41,7 +41,7 @@ export const productService = {
 
   getAllFeaturedProducts: async () => {
     try {
-      return await fetchApi.get<ApiResponse<Product>>(
+      return await fetchApi.get<ApiListResponse<Product>>(
           `/products/featured`,
       );
     } catch (error) {

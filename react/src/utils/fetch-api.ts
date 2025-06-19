@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost:80/api/v1';
-const TIMEOUT = 10000;
+const TIMEOUT = 100000;
 
 type RequestOptions = {
   method: string;

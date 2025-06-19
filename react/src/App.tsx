@@ -16,6 +16,9 @@ import NotFound from "./pages/NotFound";
 import OffersPage from "./pages/OffersPage";
 import ProductPage from "./pages/ProductPage";
 import Forbidden from "@/pages/Forbidden.tsx";
+import ForgotPasswordPage from "@/pages/ForgotPasswordPage.tsx";
+import VerifyOTPPage from "@/pages/VerifyOTPPage.tsx";
+import ChangePasswordPage from "@/pages/ChangePasswordPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +33,9 @@ const App = () => (
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/verify-otp" element={<VerifyOTPPage />} />
+            <Route path="/change-password" element={<ChangePasswordPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/categories" element={<CategoriesPage />} />

@@ -125,23 +125,22 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Newsletter */}
-        <section className="container px-4 py-16 bg-fashion-50">
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Our Newsletter</h2>
-            <p className="text-muted-foreground mb-6">
-              Sign up for our newsletter to receive updates on new collections, exclusive offers, and styling tips.
-            </p>
-            <div className="flex gap-2 max-w-md mx-auto">
-              <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 border rounded-md"
-              />
-              <Button>Subscribe</Button>
-            </div>
-          </div>
-        </section>
+        {/*<section className="container px-4 py-16 bg-fashion-50">*/}
+        {/*  <div className="max-w-xl mx-auto text-center">*/}
+        {/*    <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Our Newsletter</h2>*/}
+        {/*    <p className="text-muted-foreground mb-6">*/}
+        {/*      Sign up for our newsletter to receive updates on new collections, exclusive offers, and styling tips.*/}
+        {/*    </p>*/}
+        {/*    <div className="flex gap-2 max-w-md mx-auto">*/}
+        {/*      <input*/}
+        {/*          type="email"*/}
+        {/*          placeholder="Enter your email"*/}
+        {/*          className="flex-1 px-4 py-2 border rounded-md"*/}
+        {/*      />*/}
+        {/*      <Button>Subscribe</Button>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</section>*/}
       </PageLayout>
   );
 };

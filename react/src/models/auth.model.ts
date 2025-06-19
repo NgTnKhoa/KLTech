@@ -20,3 +20,8 @@ export interface AuthResponse {
   username: string;
   role: string;
 }
+
+export interface ChangePassword {
+  password: string;
+  repeatPassword: string;
+}

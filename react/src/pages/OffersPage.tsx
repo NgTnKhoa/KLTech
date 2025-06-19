@@ -96,27 +96,26 @@ const OffersPage = () => {
       {/*  </div>*/}
       {/*</div>*/}
 
-      {/* Newsletter Section */}
-      <div className="container px-4 py-12 mb-12">
-        <div className="bg-muted md:p-12 rounded-lg">
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Cập nhật thông tin về các ưu đãi</h2>
-            <p className="text-muted-foreground mb-6">
-              Đăng ký nhận bản tin của chúng tôi để là người đầu tiên biết về các ưu đãi và khuyến mãi độc quyền.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Nhập email của bạn"
-                className="flex-1 px-4 py-2 border rounded-md"
-              />
-              <button className="px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
-                Đăng ký
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/*<div className="container px-4 py-12 mb-12">*/}
+      {/*  <div className="bg-muted md:p-12 rounded-lg">*/}
+      {/*    <div className="max-w-xl mx-auto text-center">*/}
+      {/*      <h2 className="text-2xl font-bold mb-4">Cập nhật thông tin về các ưu đãi</h2>*/}
+      {/*      <p className="text-muted-foreground mb-6">*/}
+      {/*        Đăng ký nhận bản tin của chúng tôi để là người đầu tiên biết về các ưu đãi và khuyến mãi độc quyền.*/}
+      {/*      </p>*/}
+      {/*      <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">*/}
+      {/*        <input*/}
+      {/*          type="email"*/}
+      {/*          placeholder="Nhập email của bạn"*/}
+      {/*          className="flex-1 px-4 py-2 border rounded-md"*/}
+      {/*        />*/}
+      {/*        <button className="px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">*/}
+      {/*          Đăng ký*/}
+      {/*        </button>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </PageLayout>
   );
 };

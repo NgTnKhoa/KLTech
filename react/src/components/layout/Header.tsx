@@ -205,8 +205,8 @@ const Header = () => {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="icon" className="w-100 gap-1">
-                            <User className="h-5 w-5"/>
-                            <p>{localStorage.getItem("username")}</p>
+                          <User className="h-5 w-5"/>
+                          <p>{localStorage.getItem("username")}</p>
                         </Button>
                       </DropdownMenuTrigger>
 
@@ -225,6 +225,15 @@ const Header = () => {
                 ) :
                 (
                     <Button variant="ghost" size="icon" onClick={() => navigate("/login")}>Login</Button>
+                )
+            }
+            {
+                localStorage.getItem("role") === "ADMIN" && (
+                    <Link to="/admin">
+                      <Button size="icon" className="border-b w-[3vw]">
+                        <span>ADMIN</span>
+                      </Button>
+                    </Link>
                 )
             }
           </div>

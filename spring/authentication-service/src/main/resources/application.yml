@@ -29,6 +29,16 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 21130079@st.hcmuaf.edu.vn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 application:
   security:

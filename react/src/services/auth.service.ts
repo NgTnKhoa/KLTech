@@ -1,5 +1,5 @@
 import type {
-  AuthResponse,
+  AuthResponse, ChangePassword,
   LoginRequest,
   RegisterRequest,
 } from "../models/auth.model";
@@ -32,4 +32,34 @@ export const authService = {
       return error;
     }
   },
+
+  forgotPassword: async (email: string) => {
+    try {
+      return await fetchApi.post<AuthResponse>(
+          `/auth/forgot-password/verify/${email}`,
+          null
+      );
+    } catch (error) {
+      console.error(error);
+      return error;
+    }
+  },
+
+  verifyOTP: async (otp: number, email: string) => {
+    try {
+      return await fetchApi.post(`/auth/forgot-password/verify-otp/${otp}/${email}`, null);
+    } catch (error) {
+      console.error(error);
+      return error;
+    }
+  },
+
+  changePassword: async (changePassword: ChangePassword, email: string) => {
+    try {
+      return await fetchApi.post(`/auth/forgot-password/change-password/${email}`, changePassword);
+    } catch (error) {
+      console.error(error);
+      return error;
+    }
+  }
 };

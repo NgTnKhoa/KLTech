@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -63,6 +64,9 @@ public class User extends Base implements UserDetails {
   @Column(name = "role")
   @Enumerated(EnumType.STRING)
   private UserRoles role;
+
+  @OneToOne(mappedBy = "user")
+  private ForgotPassword forgotPassword;
 
   @OneToMany(mappedBy = "user")
   @Cascade(CascadeType.ALL)

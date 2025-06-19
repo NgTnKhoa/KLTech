@@ -35,8 +35,7 @@ const ProductPage = () => {
   useEffect(() => {
     if (productId) {
       const getProduct = async () => {
-        let foundProduct = await productService.getProductById(productId);
-        foundProduct = foundProduct.data;
+        const foundProduct = (await productService.getProductById(productId)).data;
 
         if (foundProduct) {
           setProduct(foundProduct);
@@ -46,15 +45,13 @@ const ProductPage = () => {
           const getRelatedProducts = async () => {
 
             // Get related products
-            let relatedProducts = await categoryService.getAllProducts(foundProduct.categoryId);
-            relatedProducts = relatedProducts.data;
+            let relatedProducts = (await categoryService.getAllProducts(foundProduct.categoryId)).data;
 
             relatedProducts = relatedProducts.filter(p => p.id !== foundProduct.id);
 
             // If we don't have enough products in the same category, add some featured products
             if (relatedProducts.length < 4) {
-              let featuredProducts = await productService.getAllFeaturedProducts();
-              featuredProducts = featuredProducts.data
+              let featuredProducts = (await productService.getAllFeaturedProducts()).data;
 
               featuredProducts = featuredProducts.filter(
                   p => p.id !== foundProduct.id

@@ -73,7 +73,7 @@ const ReviewCard = ({product, author, review, onDelete, onEdit}: ReviewCardProps
           </div>
           <div>
             {
-              (author !== null) && (author === review.author) ?
+              ((author !== null) && (author === review.author)) || localStorage.getItem("role") === "ADMIN" ?
                   (
                       <div>
                         <DropdownMenu>
@@ -86,7 +86,6 @@ const ReviewCard = ({product, author, review, onDelete, onEdit}: ReviewCardProps
                           </DropdownMenuContent>
                         </DropdownMenu>
 
-                        {/* Delete Dialog */}
                         <AlertDialog open={openDelete} onOpenChange={setOpenDelete}>
                           <AlertDialogContent>
                             <AlertDialogHeader>
@@ -100,7 +99,6 @@ const ReviewCard = ({product, author, review, onDelete, onEdit}: ReviewCardProps
                           </AlertDialogContent>
                         </AlertDialog>
 
-                        {/* Edit Dialog */}
                         <AlertDialog open={openEdit} onOpenChange={setOpenEdit}>
                           <AlertDialogContent>
                             <AlertDialogHeader>
